@@ -63,7 +63,8 @@ button:hover {
 }
 #fileInput,
 #stopScanBtn,
-#video {
+#video,
+#saveQrBtn {
   display: none;
 }
 

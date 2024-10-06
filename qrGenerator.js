@@ -1,3 +1,5 @@
+document.getElementById("saveQrBtn").addEventListener("click", saveQRCode);
+
 document.getElementById("generateBtn").addEventListener("click", function () {
   const type = document.getElementById("typeSelect").value;
   const inputValue = document.getElementById("inputValue").value;
@@ -7,7 +9,6 @@ document.getElementById("generateBtn").addEventListener("click", function () {
     alert("Please enter a value.");
     return;
   }
-
   switch (type) {
     case "text":
       qrData = inputValue;
@@ -35,6 +36,7 @@ document.getElementById("generateBtn").addEventListener("click", function () {
     height: 200,
     text: qrData,
   });
+  document.getElementById("saveQrBtn").style.display = "inline-block";
 });
 
 // Scanner Logic
@@ -158,4 +160,19 @@ function handleFileSelect(event) {
     img.src = e.target.result;
   };
   reader.readAsDataURL(file);
+}
+
+function saveQRCode() {
+  const qrCodeCanvas = document.querySelector("#qrCanvas canvas");
+
+  if (qrCodeCanvas) {
+    const qrImage = qrCodeCanvas.toDataURL("image/png");
+
+    const downloadLink = document.createElement("a");
+    downloadLink.href = qrImage;
+    downloadLink.download = "qrcode.png";
+    downloadLink.click();
+  } else {
+    alert("Generate a QR code first!");
+  }
 }
