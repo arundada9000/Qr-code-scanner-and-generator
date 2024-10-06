@@ -1,0 +1,25 @@
+/* Chrome, Safari */
+::-webkit-scrollbar {
+  width: 10px !important;
+  height: 10px !important;
+}
+
+::-webkit-scrollbar-track {
+  background: #f9f9f9 !important;
+  border-radius: 40px !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #f9f9f9 !important;
+  border-radius: 50px !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #007bff !important;
+}
+
+/* for Firefox */
+* {
+  scrollbar-width: thin !important;
+  scrollbar-color: #007bff #f9f9f9 !important;
+}

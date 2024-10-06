@@ -1,8 +1,11 @@
+html {
+  scroll-behavior: smooth;
+}
 body {
   font-family: Arial, sans-serif;
   background-color: #f9f9f9;
   margin: 0;
-  padding: 20px;
+  overflow-x: hidden;
 }
 
 .main-content {
@@ -64,7 +67,8 @@ button:hover {
 #fileInput,
 #stopScanBtn,
 #video,
-#saveQrBtn {
+#saveQrBtn,
+#backBtn {
   display: none;
 }
 
@@ -107,12 +111,10 @@ button:hover {
   }
 
   input[type="text"],
-  select {
-    padding: 8px;
-  }
-
+  select,
   button {
-    padding: 8px;
+    padding: 0.65rem;
+    font-size: 1rem;
   }
 
   #qrCanvas {
@@ -157,5 +159,44 @@ button:hover {
 
   .info-section {
     margin-top: 20px;
+    text-align: justify;
   }
+}
+footer {
+  background-color: #007bff;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-info p {
+  margin: 5px 0;
+  font-size: 0.9rem;
+}
+
+.footer-links {
+  margin-top: 10px;
+}
+
+.footer-links a {
+  color: white;
+  margin: 0 10px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover {
+  color: #fff;
 }

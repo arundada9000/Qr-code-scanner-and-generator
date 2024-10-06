@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QR Code Generator and Scanner</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./scrollbar.css">
     <!--  jsQR for scanning -->
     <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.js"></script>
     <!--  jQuery -->
@@ -47,7 +48,7 @@
             </div>
         </div>
 
-        <div class="info-section">
+        <div class="info-section" id="info-section">
             <h2>What are QR Codes?</h2>
             <p>
                 QR codes (Quick Response codes) are two-dimensional barcodes that store information as a series of black
@@ -94,12 +95,23 @@
             </ul>
             </p>
         </div>
-
     </div>
 
+    <footer>
+        <div class="footer-container">
+            <div class="footer-info">
+                <p>&copy; 2024 Arun Neupane. All rights reserved.</p>
+                <p>Made with ❤️ by Arun Neupane</p>
+            </div>
+            <div class="footer-links">
+                <a href="#info-section">About</a>
+                <a href="https://allunitconverter.netlify.app/privacy">Privacy Policy</a>
+                <a href="https://allunitconverter.netlify.app/contact">Contact</a>
+            </div>
+        </div>
+    </footer>
 
-
-    <script src="qrGenerator.js"></script>
+    <script src="./qrGenerator.js"></script>
 </body>
 
 </html>
