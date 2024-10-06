@@ -1,7 +1,7 @@
 /* Chrome, Safari */
 ::-webkit-scrollbar {
-  width: 10px !important;
-  height: 10px !important;
+  width: 10px;
+  height: 10px;
 }
 
 ::-webkit-scrollbar-track {
@@ -22,4 +22,12 @@
 * {
   scrollbar-width: thin !important;
   scrollbar-color: #007bff #f9f9f9 !important;
+}
+@media (max-width: 768px) {
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  scrollbar {
+    display: none;
+  }
 }

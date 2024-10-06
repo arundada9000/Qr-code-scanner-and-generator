@@ -2,6 +2,8 @@ html {
   scroll-behavior: smooth;
 }
 body {
+  width: 100vw;
+  height: 100vh;
   font-family: Arial, sans-serif;
   background-color: #f9f9f9;
   margin: 0;
