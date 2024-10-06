@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Generator and Scanner</title>
+    <link rel="stylesheet" href="styles.css">
+    <!--  jsQR for scanning -->
+    <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.js"></script>
+    <!--  jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- jQuery QR Code generator -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+</head>
+
+<body>
+    <h1>QR Code Generator and Scanner</h1>
+    <div class="main-content">
+        <div class="container">
+            <!-- QR Code Generator Section -->
+            <div class="generator">
+                <h2>Generate QR Code</h2>
+                <select id="typeSelect" title="Select a type of qr">
+                    <option value="text">Text</option>
+                    <option value="url">URL</option>
+                    <option value="email">Email</option>
+                    <option value="phone">Phone Number</option>
+                    <option value="wifi">Wi-Fi</option>
+                </select>
+                <input type="text" id="inputValue" placeholder="Enter your data" required>
+                <button id="generateBtn">Generate QR Code</button>
+                <div id="qrCanvas"></div>
+            </div>
+
+            <!-- QR Code Scanner Section -->
+            <div class="scanner">
+                <h2>Scan QR Code</h2>
+                <button id="startScanBtn">Start Scanning</button>
+                <button id="stopScanBtn">Stop Scanning</button>
+                <button id="backBtn">Back</button>
+                <input type="file" id="fileInput" accept="image/*" title="File">
+                <button id="uploadBtn">Upload Photo</button>
+                <video id="video" autoplay></video>
+                <div id="output">Click 'Start Scanning' to begin.</div>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h2>What are QR Codes?</h2>
+            <p>
+                QR codes (Quick Response codes) are two-dimensional barcodes that store information as a series of black
+                and white squares.
+                Unlike traditional barcodes, which are one-dimensional and read horizontally, QR codes can store data in
+                both horizontal
+                and vertical directions. This allows QR codes to store significantly more information, such as URLs,
+                contact details, Wi-Fi
+                credentials, and more.
+            </p>
+
+            <h2>How Do QR Codes Work?</h2>
+            <p>
+                QR codes are made up of a unique pattern of black squares arranged on a white background. This pattern
+                encodes information,
+                which can be decoded by a QR code scanner or a smartphone camera. When a QR code is scanned, the device
+                reads the pattern,
+                interprets the data, and performs the associated action (e.g., opening a link or connecting to Wi-Fi).
+            </p>
+
+            <h2>QR Code Generators and Scanners</h2>
+            <p>
+                A QR code generator converts input data (such as text, URLs, phone numbers, or Wi-Fi credentials) into a
+                QR code image that
+                can be scanned. A QR code scanner, on the other hand, decodes the information stored in the QR code. In
+                modern applications,
+                QR code scanning can be done using the camera of a smartphone or a dedicated scanner device.
+            </p>
+
+            <h2>Technology Used in This File</h2>
+            <p>
+                This page is built using:
+            <ul>
+                <li><strong>JavaScript:</strong> The QR code generator uses JavaScript to generate QR codes using the
+                    'QRCode' library. The scanner interacts with the camera using the browser's media capabilities (via
+                    <code>getUserMedia()</code> API).
+                </li>
+                <li><strong>HTML5 & CSS:</strong> HTML is used for the structure of the page, and CSS is used to style
+                    the QR code generator/scanner and make it mobile responsive.</li>
+                <li><strong>QRCode.js:</strong> This is a JavaScript library used to generate QR codes dynamically on
+                    the web page.</li>
+                <li><strong>MediaDevices API:</strong> The scanner feature is powered by the browser's MediaDevices API,
+                    allowing access to the device's camera for real-time scanning.</li>
+            </ul>
+            </p>
+        </div>
+
+    </div>
+
+
+
+    <script src="qrGenerator.js"></script>
+</body>
+
+</html>
