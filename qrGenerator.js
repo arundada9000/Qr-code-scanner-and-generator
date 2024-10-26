@@ -13,6 +13,9 @@ document.getElementById("generateBtn").addEventListener("click", function () {
     case "text":
       qrData = inputValue;
       break;
+    case "special-text":
+      qrData = inputValue;
+      break;
     case "url":
       qrData = inputValue.startsWith("http")
         ? inputValue
@@ -32,8 +35,8 @@ document.getElementById("generateBtn").addEventListener("click", function () {
 
   $("#qrCanvas").empty();
   $("#qrCanvas").qrcode({
-    width: 200,
-    height: 200,
+    width: 100,
+    height: 100,
     text: qrData,
   });
   document.getElementById("saveQrBtn").style.display = "inline-block";
