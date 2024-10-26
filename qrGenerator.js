@@ -26,7 +26,7 @@ document.getElementById("generateBtn").addEventListener("click", function () {
       break;
     case "wifi":
       const [ssid, password] = inputValue.split(",");
-      qrData = `WIFI:T:WPA;S:${ssid};P:${password};;`;
+      qrData = `WIFI:Type:WPA;SSID:${ssid};Password:${password};;`;
       break;
   }
 
