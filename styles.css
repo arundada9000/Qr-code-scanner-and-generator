@@ -162,7 +162,10 @@ body {
   background-color: #1e1e1e;
   color: #e0e0e0;
 }
-
+.dark-mode .info-section p,
+.dark-mode .info-section h2 {
+  color: white;
+}
 .dark-mode #darkModeToggle {
   background-color: #333;
   color: #ffcc00;
