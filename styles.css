@@ -1,3 +1,29 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+/* scroll bar */
+/* Chrome, Safari */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f9f9f9 !important;
+  border-radius: 40px !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #f9f9f9 !important;
+  border-radius: 50px !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #007bff !important;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -5,7 +31,7 @@ body {
   width: 100vw;
   height: 100vh;
   font-family: Arial, sans-serif;
-  background-color: #f9f9f9;
+  /* background-color: #f9f9f9; */
   margin: 0;
   overflow-x: hidden;
 }
@@ -19,9 +45,9 @@ body {
 }
 .container {
   width: 100%;
-  max-width: 600px;
+  max-width: 700px;
   margin: auto;
-  padding: 20px;
+  padding: 25px;
   border: 1px solid #ddd;
   border-radius: 10px;
   background-color: #fff;
@@ -30,6 +56,7 @@ body {
 
 h1 {
   text-align: center;
+  padding: 1rem 0rem;
 }
 
 .generator,
@@ -106,6 +133,40 @@ button:hover {
   margin-bottom: 10px;
 }
 
+/* dark mode  */
+body {
+  transition: background-color 0.3s, color 0.3s;
+}
+#darkModeToggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #333;
+  color: #fff;
+  font-size: 18px;
+  text-align: center;
+  line-height: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  z-index: 999;
+}
+
+/* Dark Mode Styles */
+.dark-mode body,
+.dark-mode .container,
+.dark-mode .info-section {
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+}
+
+.dark-mode #darkModeToggle {
+  background-color: #333;
+  color: #ffcc00;
+}
 /* media query for responsiveness */
 @media (max-width: 600px) {
   .container {

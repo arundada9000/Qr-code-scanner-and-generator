@@ -39,6 +39,38 @@ document.getElementById("generateBtn").addEventListener("click", function () {
   document.getElementById("saveQrBtn").style.display = "inline-block";
 });
 
+// Dark mode
+const darkModeToggle = document.getElementById("darkModeToggle");
+const systemPrefersDark = window.matchMedia(
+  "(prefers-color-scheme: dark)"
+).matches;
+
+document.addEventListener("DOMContentLoaded", () => {
+  if (
+    localStorage.getItem("theme") === "dark" ||
+    (!localStorage.getItem("theme") && systemPrefersDark)
+  ) {
+    document.documentElement.classList.add("dark-mode");
+    darkModeToggle.textContent = "🌞";
+  } else {
+    darkModeToggle.textContent = "🌙";
+  }
+});
+
+darkModeToggle.addEventListener("click", () => {
+  document.documentElement.classList.toggle("dark-mode");
+  const isDarkMode = document.documentElement.classList.contains("dark-mode");
+  darkModeToggle.textContent = isDarkMode ? "🌞" : "🌙";
+  localStorage.setItem("theme", isDarkMode ? "dark" : "light");
+});
+
+// Update button icon based on current mode
+function updateButtonIcon(isDarkMode) {
+  document.querySelector(".dark-mode-toggle").textContent = isDarkMode
+    ? "☀️"
+    : "🌙";
+}
+
 // Scanner Logic
 let video = document.getElementById("video");
 let output = document.getElementById("output");
