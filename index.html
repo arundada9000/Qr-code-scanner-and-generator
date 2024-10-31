@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Create and scan any type of qr code with a single tap online for free" />
+    <meta name="description"
+        content="Create and scan any type of qr code with a single tap online without any ads for free." />
     <meta name="keyword" class="qr,qr code, qr code generator, qr code scanner, qr online,quick response code" />
     <title>QR Code Generator and Scanner</title>
     <link rel="stylesheet" href="./styles.css">
@@ -23,6 +24,7 @@
                 <h2>Generate QR Code</h2>
                 <select id="typeSelect" title="Select a type of qr">
                     <option value="text">Text</option>
+                    <option value="special-text">Text with emoji</option>
                     <option value="url">URL</option>
                     <option value="email">Email</option>
                     <option value="phone">Phone Number</option>
@@ -37,7 +39,7 @@
             <!-- QR Code Scanner Section -->
             <div class=" scanner">
                     <h2>Scan QR Code</h2>
-                    <button id="startScanBtn">Start Scanning</button>
+                    <button id="startScanBtn">Open Camera</button>
                     <button id="stopScanBtn">Stop Scanning</button>
                     <button id="backBtn">Back</button>
                     <input type="file" id="fileInput" accept="image/*" title="File">
@@ -111,13 +113,15 @@
         </div>
     </footer>
 
-    <script src="./qrGenerator.js"></script>
     <!--  jsQR for scanning -->
     <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.js"></script>
     <!--  jQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- jQuery QR Code generator -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+
+    <script src="./qrGenerator.js"></script>
+
 </body>
 
 </html>
