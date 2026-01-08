@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Create and scan any type of qr code with a single tap online without any ads for free." />
+    <meta name="keyword"
+        class="qr,qr code, qr code generator, qr code scanner, qr online,quick response code, arun neupane, arundada9000, arun nepal, sailo digital" />
+    <title>QR Code Generator and Scanner</title>
+    <link rel="shortcut icon" href="./images/qr-code-50.png" type="image/x-icon">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        /* scroll bar */
+        /* Chrome, Safari */
+        ::-webkit-scrollbar {
+            width: 10px;
+            height: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f9f9f9 !important;
+            border-radius: 40px !important;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #f9f9f9 !important;
+            border-radius: 50px !important;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #007bff !important;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            width: 100vw;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            /* background-color: #f9f9f9; */
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 700px;
+            margin: auto;
+            padding: 25px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            padding: 1rem 0rem;
+        }
+
+        .generator,
+        .scanner,
+        #output,
+        #backBtn {
+            margin-top: 20px;
+        }
+
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #qrCanvas {
+            display: block;
+            margin: 20px auto;
+            border: 1px solid #ccc;
+        }
+
+        #fileInput,
+        #stopScanBtn,
+        #video,
+        #saveQrBtn,
+        #backBtn {
+            display: none;
+        }
+
+        .info-section {
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        .info-section h2 {
+            font-size: 1.5em;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .info-section p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .info-section ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        .info-section li {
+            margin-bottom: 10px;
+        }
+
+        /* dark mode  */
+        body {
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        #darkModeToggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #333;
+            color: #fff;
+            font-size: 18px;
+            text-align: center;
+            line-height: 50px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            z-index: 999;
+        }
+
+        /* Dark Mode Styles */
+        .dark-mode body,
+        .dark-mode .container,
+        .dark-mode .info-section {
+            background-color: #1e1e1e;
+            color: #e0e0e0;
+        }
+
+        .dark-mode .info-section p,
+        .dark-mode .info-section h2 {
+            color: white;
+        }
+
+        .dark-mode #darkModeToggle {
+            background-color: #333;
+            color: #ffcc00;
+        }
+
+        /* media query for responsiveness */
+        @media (max-width: 600px) {
+            .container {
+                padding: 10px;
+                border-radius: 5px;
+            }
+
+            input[type="text"],
+            select,
+            button {
+                padding: 0.65rem;
+                font-size: 1rem;
+            }
+
+            #qrCanvas {
+                width: 100%;
+                height: auto;
+            }
+
+            h1 {
+                font-size: 1.5em;
+            }
+
+            h2 {
+                font-size: 1.25em;
+            }
+
+            #video {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+                z-index: 999;
+                background: black;
+            }
+
+            #backBtn {
+                position: fixed;
+                top: 20px;
+                left: 20px;
+                z-index: 1000;
+                background-color: rgba(255, 255, 255, 0.8);
+                border: none;
+                padding: 10px 20px;
+                font-size: 16px;
+                color: black;
+                cursor: pointer;
+                border-radius: 5px;
+                display: none;
+            }
+
+            .main-content {
+                flex-direction: column;
+            }
+
+            .info-section {
+                margin-top: 20px;
+                text-align: justify;
+            }
+        }
+
+        footer {
+            background-color: #007bff;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .footer-info p {
+            margin: 5px 0;
+            font-size: 0.9rem;
+        }
+
+        .footer-links {
+            margin-top: 10px;
+        }
+
+        .footer-links a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="darkModeToggle" class="toggle-button">🌙</div>
+
+    <h1>QR Code Generator and Scanner</h1>
+    <div class="main-content">
+        <div class="container">
+            <!-- QR Code Generator Section -->
+            <div class="generator">
+                <h2>Generate QR Code</h2>
+                <select id="typeSelect" title="Select a type of qr">
+                    <option value="text">Text</option>
+                    <option value="special-text">Text with emoji</option>
+                    <option value="url">URL</option>
+                    <option value="email">Email</option>
+                    <option value="phone">Phone Number</option>
+                    <option value="wifi">Wi-Fi</option>
+                </select>
+                <input type="text" id="inputValue" placeholder="Enter your data" required>
+                <button id="generateBtn">Generate QR Code</button>
+                <div id="qrCanvas"></div>
+                <button id="saveQrBtn"">Save</button>
+            </div>
+
+            <!-- QR Code Scanner Section -->
+            <div class=" scanner">
+                    <h2>Scan QR Code</h2>
+                    <button id="startScanBtn">Open Camera</button>
+                    <button id="stopScanBtn">Stop Scanning</button>
+                    <button id="backBtn">Back</button>
+                    <input type="file" id="fileInput" accept="image/*" title="File">
+                    <button id="uploadBtn">Upload Photo</button>
+                    <video id="video" autoplay></video>
+                    <div id="output">Click 'Start Scanning' to begin.</div>
+            </div>
+        </div>
+
+        <div class="info-section" id="info-section">
+            <h2>What are QR Codes?</h2>
+            <p>
+                QR codes (Quick Response codes) are two-dimensional barcodes that store information as a series of black
+                and white squares.
+                Unlike traditional barcodes, which are one-dimensional and read horizontally, QR codes can store data in
+                both horizontal
+                and vertical directions. This allows QR codes to store significantly more information, such as URLs,
+                contact details, Wi-Fi
+                credentials, and more.
+            </p>
+
+            <h2>How Do QR Codes Work?</h2>
+            <p>
+                QR codes are made up of a unique pattern of black squares arranged on a white background. This pattern
+                encodes information,
+                which can be decoded by a QR code scanner or a smartphone camera. When a QR code is scanned, the device
+                reads the pattern,
+                interprets the data, and performs the associated action (e.g., opening a link or connecting to Wi-Fi).
+            </p>
+
+            <h2>QR Code Generators and Scanners</h2>
+            <p>
+                A QR code generator converts input data (such as text, URLs, phone numbers, or Wi-Fi credentials) into a
+                QR code image that
+                can be scanned. A QR code scanner, on the other hand, decodes the information stored in the QR code. In
+                modern applications,
+                QR code scanning can be done using the camera of a smartphone or a dedicated scanner device.
+            </p>
+
+            <h2>Technology Used in This File</h2>
+            <p>
+                This page is built using:
+            <ul>
+                <li><strong>JavaScript:</strong> The QR code generator uses JavaScript to generate QR codes using the
+                    'QRCode' library. The scanner interacts with the camera using the browser's media capabilities (via
+                    <code>getUserMedia()</code> API).
+                </li>
+                <li><strong>HTML5 & CSS:</strong> HTML is used for the structure of the page, and CSS is used to style
+                    the QR code generator/scanner and make it mobile responsive.</li>
+                <li><strong>QRCode.js:</strong> This is a JavaScript library used to generate QR codes dynamically on
+                    the web page.</li>
+                <li><strong>MediaDevices API:</strong> The scanner feature is powered by the browser's MediaDevices API,
+                    allowing access to the device's camera for real-time scanning.</li>
+            </ul>
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-info">
+                <p>&copy; 2024 Arun Neupane. All rights reserved.</p>
+                <p>Made with ❤️ by Arun Neupane</p>
+                <p>For Learning and Development</p>
+            </div>
+            <div class="footer-links">
+                <a href="https://github.com/arundada9000/Qr-code-scanner-and-generator">Code</a>
+                <a href="https://allunitconverter.netlify.app/privacy">Privacy Policy</a>
+                <a href="https://allunitconverter.netlify.app/contact">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <!--  jsQR for scanning -->
+    <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.js"></script>
+    <!--  jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- jQuery QR Code generator -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+
+    <script>
+        document.getElementById("saveQrBtn").addEventListener("click", saveQRCode);
+
+        document.getElementById("generateBtn").addEventListener("click", function () {
+            const type = document.getElementById("typeSelect").value;
+            const inputValue = document.getElementById("inputValue").value;
+            let qrData;
+
+            if (!inputValue.trim()) {
+                alert("Please enter a value.");
+                return;
+            }
+            switch (type) {
+                case "text":
+                    qrData = inputValue;
+                    break;
+                case "special-text":
+                    qrData = inputValue;
+                    break;
+                case "url":
+                    qrData = inputValue.startsWith("http")
+                        ? inputValue
+                        : "http://" + inputValue;
+                    break;
+                case "email":
+                    qrData = `mailto:${inputValue}`;
+                    break;
+                case "phone":
+                    qrData = `tel:${inputValue}`;
+                    break;
+                case "wifi":
+                    const [ssid, password] = inputValue.split(",");
+                    qrData = `WIFI:Type:WPA;SSID:${ssid};Password:${password};;`;
+                    break;
+            }
+
+            $("#qrCanvas").empty();
+            $("#qrCanvas").qrcode({
+                width: 100,
+                height: 100,
+                text: qrData,
+            });
+            document.getElementById("saveQrBtn").style.display = "inline-block";
+        });
+
+        // Dark mode
+        const darkModeToggle = document.getElementById("darkModeToggle");
+        const systemPrefersDark = window.matchMedia(
+            "(prefers-color-scheme: dark)"
+        ).matches;
+
+        document.addEventListener("DOMContentLoaded", () => {
+            if (
+                localStorage.getItem("theme") === "dark" ||
+                (!localStorage.getItem("theme") && systemPrefersDark)
+            ) {
+                document.documentElement.classList.add("dark-mode");
+                darkModeToggle.textContent = "🌞";
+            } else {
+                darkModeToggle.textContent = "🌙";
+            }
+        });
+
+        darkModeToggle.addEventListener("click", () => {
+            document.documentElement.classList.toggle("dark-mode");
+            const isDarkMode = document.documentElement.classList.contains("dark-mode");
+            darkModeToggle.textContent = isDarkMode ? "🌞" : "🌙";
+            localStorage.setItem("theme", isDarkMode ? "dark" : "light");
+        });
+
+        // Update button icon based on current mode
+        function updateButtonIcon(isDarkMode) {
+            document.querySelector(".dark-mode-toggle").textContent = isDarkMode
+                ? "☀️"
+                : "🌙";
+        }
+
+        // Scanner Logic
+        let video = document.getElementById("video");
+        let output = document.getElementById("output");
+        let startScanBtn = document.getElementById("startScanBtn");
+        let stopScanBtn = document.getElementById("stopScanBtn");
+        let fileInput = document.getElementById("fileInput");
+        let scanInterval;
+
+        startScanBtn.addEventListener("click", startScanner);
+        stopScanBtn.addEventListener("click", stopScanner);
+        document
+            .getElementById("uploadBtn")
+            .addEventListener("click", () => fileInput.click());
+
+        fileInput.addEventListener("change", handleFileSelect);
+
+        function scanQRCode() {
+            const canvas = document.createElement("canvas");
+            const context = canvas.getContext("2d");
+            canvas.width = video.videoWidth;
+            canvas.height = video.videoHeight;
+            context.drawImage(video, 0, 0, canvas.width, canvas.height);
+            const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+            const qrCode = jsQR(imageData.data, canvas.width, canvas.height);
+
+            if (qrCode) {
+                output.innerText = `QR Code detected: ${qrCode.data}`;
+                stopScanner();
+
+                handleQRCodeData(qrCode.data);
+            }
+        }
+
+        function handleQRCodeData(data) {
+            if (data.startsWith("mailto:")) {
+                window.location.href = data;
+            } else if (data.startsWith("tel:")) {
+                window.location.href = data;
+            } else if (data.startsWith("WIFI:")) {
+                output.innerText = `Wi-Fi QR Code detected: ${data}`;
+            } else {
+                output.innerText = `Scanned QR Code: ${data}`;
+            }
+        }
+
+        document.getElementById("backBtn").addEventListener("click", function () {
+            stopScanner();
+        });
+
+        function startScanner() {
+            startScanBtn.disabled = true;
+            stopScanBtn.style.display = "inline-block";
+            backBtn.style.display = "none";
+            startScanBtn.innerText = "Scanning...";
+            output.innerText = "Scanning for QR code...";
+
+            if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+                navigator.mediaDevices
+                    .getUserMedia({ video: { facingMode: "environment" } })
+                    .then(function (stream) {
+                        video.srcObject = stream;
+                        video.style.display = "block";
+                        video.play();
+                        scanInterval = setInterval(scanQRCode, 300);
+                        backBtn.style.display = "inline-block";
+                    })
+                    .catch(function (err) {
+                        console.error("Error accessing camera: ", err);
+                        output.innerText = "Error accessing camera";
+                    });
+            } else {
+                output.innerText = "Camera not supported";
+            }
+        }
+
+        function stopScanner() {
+            clearInterval(scanInterval);
+            video.style.display = "none";
+            startScanBtn.disabled = false;
+            startScanBtn.innerText = "Start Scanning";
+            stopScanBtn.style.display = "none";
+            backBtn.style.display = "none";
+
+            // Reset video styles
+            video.style.position = "";
+            video.style.width = "";
+            video.style.height = "";
+            video.style.zIndex = "";
+
+            document.querySelector(".container").style.display = "block";
+
+            if (video.srcObject) {
+                let stream = video.srcObject;
+                let tracks = stream.getTracks();
+                tracks.forEach((track) => track.stop());
+            }
+        }
+
+        function handleFileSelect(event) {
+            const file = event.target.files[0];
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                const img = new Image();
+                img.onload = function () {
+                    const canvas = document.createElement("canvas");
+                    const context = canvas.getContext("2d");
+                    canvas.width = img.width;
+                    canvas.height = img.height;
+                    context.drawImage(img, 0, 0);
+                    const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+                    const qrCode = jsQR(imageData.data, canvas.width, canvas.height);
+                    if (qrCode) {
+                        output.innerText = `QR Code detected: ${qrCode.data}`;
+                        handleQRCodeData(qrCode.data);
+                    } else {
+                        output.innerText = "No QR Code found.";
+                    }
+                };
+                img.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function saveQRCode() {
+            const qrCodeCanvas = document.querySelector("#qrCanvas canvas");
+
+            if (qrCodeCanvas) {
+                const qrImage = qrCodeCanvas.toDataURL("image/png");
+
+                const downloadLink = document.createElement("a");
+                downloadLink.href = qrImage;
+                downloadLink.download = "qrcode.png";
+                downloadLink.click();
+            } else {
+                alert("Generate a QR code first!");
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>

@@ -7,122 +7,158 @@
     <meta name="description"
         content="Create and scan any type of qr code with a single tap online without any ads for free." />
     <meta name="keyword"
-        class="qr,qr code, qr code generator, qr code scanner, qr online,quick response code, arun neupane, arundada9000, arun nepal" />
-    <title>QR Code Generator and Scanner</title>
-    <link rel="stylesheet" href="./styles.css">
-    <link rel="shortcut icon" href="./images/qr-code-50.png" type="image/x-icon">
-
+        class="qr,qr code, qr code generator, qr code scanner, qr online,quick response code, arun neupane, arundada9000, arun nepal, sailo digital" />
+    <title>Sajilo QR Generator & Scanner</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 
-<body>
-    <div id="darkModeToggle" class="toggle-button">🌙</div>
+<body class="dark-mode">
+    <div id="darkModeToggle" class="theme-btn">🌙</div>
 
-    <h1>QR Code Generator and Scanner</h1>
-    <div class="main-content">
-        <div class="container">
-            <!-- QR Code Generator Section -->
-            <div class="generator">
-                <h2>Generate QR Code</h2>
-                <select id="typeSelect" title="Select a type of qr">
-                    <option value="text">Text</option>
-                    <option value="special-text">Text with emoji</option>
-                    <option value="url">URL</option>
-                    <option value="email">Email</option>
-                    <option value="phone">Phone Number</option>
-                    <option value="wifi">Wi-Fi</option>
-                </select>
-                <input type="text" id="inputValue" placeholder="Enter your data" required>
-                <button id="generateBtn">Generate QR Code</button>
-                <div id="qrCanvas"></div>
-                <button id="saveQrBtn"">Save</button>
-            </div>
+    <div class="main-wrapper">
+        <header>
+            <h1>Sajilo<span>QR</span></h1>
+            <p>Smart Generator & Scanner</p>
+        </header>
 
-            <!-- QR Code Scanner Section -->
-            <div class=" scanner">
-                    <h2>Scan QR Code</h2>
-                    <button id="startScanBtn">Open Camera</button>
-                    <button id="stopScanBtn">Stop Scanning</button>
-                    <button id="backBtn">Back</button>
-                    <input type="file" id="fileInput" accept="image/*" title="File">
-                    <button id="uploadBtn">Upload Photo</button>
-                    <video id="video" autoplay></video>
-                    <div id="output">Click 'Start Scanning' to begin.</div>
-            </div>
+        <div class="grid-container">
+            <section class="glass-card">
+                <h2>Create QR</h2>
+                <div class="form-group">
+                    <label>Type</label>
+                    <select id="typeSelect" title="type">
+                        <option value="url">URL / Website</option>
+                        <option value="text">Plain Text</option>
+                        <option value="wifi">Wi-Fi Network</option>
+                    </select>
+                </div>
+
+                <div id="standardInputs">
+                    <div class="form-group">
+                        <label>Content</label>
+                        <input type="text" id="mainInput" placeholder="Enter link or text...">
+                    </div>
+                </div>
+
+                <div id="wifiInputs" class="hidden">
+                    <div class="form-group">
+                        <label>SSID (Name)</label>
+                        <input type="text" id="ssidInput" placeholder="WiFi Name">
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" id="passInput" placeholder="WiFi Password">
+                    </div>
+                </div>
+
+                <div class="qr-output">
+                    <div id="canvasContainer"></div>
+                    <button id="downloadBtn" class="btn primary hidden">Download PNG</button>
+                </div>
+            </section>
+
+            <section class="glass-card">
+                <h2>Scan QR</h2>
+                <div class="camera-box">
+                    <video id="scanVideo" playsinline></video>
+                    <div id="scannerLine" class="hidden"></div>
+                    <div id="scanStatus">Camera Offline</div>
+                </div>
+
+                <div class="controls">
+                    <button id="toggleCamera" class="btn primary">Start Camera</button>
+                    <label for="uploadInput" class="btn secondary">Upload Image</label>
+                    <input type="file" id="uploadInput" accept="image/*" hidden>
+                </div>
+
+                <div id="resultBox" class="result-area hidden">
+                    <label>Scanned Data:</label>
+                    <div id="resultText"></div>
+                    <button id="copyResult" class="btn small">Copy Text</button>
+                </div>
+            </section>
         </div>
 
-        <div class="info-section" id="info-section">
-            <h2>What are QR Codes?</h2>
-            <p>
-                QR codes (Quick Response codes) are two-dimensional barcodes that store information as a series of black
-                and white squares.
-                Unlike traditional barcodes, which are one-dimensional and read horizontally, QR codes can store data in
-                both horizontal
-                and vertical directions. This allows QR codes to store significantly more information, such as URLs,
-                contact details, Wi-Fi
-                credentials, and more.
-            </p>
-
-            <h2>How Do QR Codes Work?</h2>
-            <p>
-                QR codes are made up of a unique pattern of black squares arranged on a white background. This pattern
-                encodes information,
-                which can be decoded by a QR code scanner or a smartphone camera. When a QR code is scanned, the device
-                reads the pattern,
-                interprets the data, and performs the associated action (e.g., opening a link or connecting to Wi-Fi).
-            </p>
-
-            <h2>QR Code Generators and Scanners</h2>
-            <p>
-                A QR code generator converts input data (such as text, URLs, phone numbers, or Wi-Fi credentials) into a
-                QR code image that
-                can be scanned. A QR code scanner, on the other hand, decodes the information stored in the QR code. In
-                modern applications,
-                QR code scanning can be done using the camera of a smartphone or a dedicated scanner device.
-            </p>
-
-            <h2>Technology Used in This File</h2>
-            <p>
-                This page is built using:
-            <ul>
-                <li><strong>JavaScript:</strong> The QR code generator uses JavaScript to generate QR codes using the
-                    'QRCode' library. The scanner interacts with the camera using the browser's media capabilities (via
-                    <code>getUserMedia()</code> API).
-                </li>
-                <li><strong>HTML5 & CSS:</strong> HTML is used for the structure of the page, and CSS is used to style
-                    the QR code generator/scanner and make it mobile responsive.</li>
-                <li><strong>QRCode.js:</strong> This is a JavaScript library used to generate QR codes dynamically on
-                    the web page.</li>
-                <li><strong>MediaDevices API:</strong> The scanner feature is powered by the browser's MediaDevices API,
-                    allowing access to the device's camera for real-time scanning.</li>
-            </ul>
-            </p>
-        </div>
+        <section class="glass-card history-card">
+            <div class="history-header">
+                <h2>Recent History</h2>
+                <button id="clearHistory" class="btn-danger">Clear All</button>
+            </div>
+            <div id="historyList">
+                <p class="empty-text">No recent items</p>
+            </div>
+        </section>
     </div>
 
-    <footer>
-        <div class="footer-container">
-            <div class="footer-info">
-                <p>&copy; 2024 Arun Neupane. All rights reserved.</p>
-                <p>Made with ❤️ by Arun Neupane</p>
-                <p>For Learning and Development</p>
+    <footer class="main-footer">
+        <div class="footer-wave">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                preserveAspectRatio="none">
+                <path
+                    d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+                    class="shape-fill"></path>
+            </svg>
+        </div>
+
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h2>Sajilo<span>QR</span></h2>
+                <p>Empowering your digital connectivity with secure and fast QR solutions.</p>
+                <div class="social-links">
+                    <a href="https://github.com/arundada9000" target="_blank" rel="noopener" title="GitHub"><i
+                            class="fab fa-github"></i></a>
+                    <a href="https://youtube.com/@arundada9000" target="_blank" rel="noopener" title="Twitter"><i
+                            class="fab fa-youtube"></i></a>
+                    <a href="https://facebook.com/arundada9000" target="_blank" rel="noopener" title="LinkedIn"><i
+                            class="fab fa-facebook"></i></a>
+                    <a href="https://instagram.com/arundada9000" target="_blank" rel="noopener" title="Instagram"><i
+                            class="fab fa-instagram"></i></a>
+                </div>
             </div>
-            <div class="footer-links">
-                <a href="https://github.com/arundada9000/Qr-code-scanner-and-generator">Code</a>
-                <a href="https://allunitconverter.netlify.app/privacy">Privacy Policy</a>
-                <a href="https://allunitconverter.netlify.app/contact">Contact</a>
+
+            <div class="footer-nav">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#" id="openPrivacy"><i class="fas fa-shield-alt"></i> Privacy Policy</a></li>
+                    <li><a href="https://allunitconverter.netlify.app/contact"><i class="fas fa-envelope"></i> Contact
+                            Me</a></li>
+                    <li><a href="https://github.com/arundada9000/Qr-code-scanner-and-generator"><i
+                                class="fas fa-code-branch"></i> Source Code</a></li>
+                    <li><a href="./prev.html" target="_blank" rel="noopener">Previous Version</a></li>
+                </ul>
             </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 <strong>Arun Neupane</strong>. Crafted with <i class="fas fa-heart pulse"></i> for the Web.
+            </p>
         </div>
     </footer>
 
-    <!--  jsQR for scanning -->
+    <div id="privacyModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Privacy Policy</h2>
+            <div class="modal-body">
+                <p><strong>Last Updated: January 2026</strong></p>
+                <p>Your privacy is important to us. This tool operates primarily on the client-side:</p>
+                <ul>
+                    <li><i class="fas fa-check"></i> <strong>Local Processing:</strong> All QR generation and scanning
+                        happen in your browser. We do not store your data on our servers.</li>
+                    <li><i class="fas fa-check"></i> <strong>Camera Access:</strong> Camera permissions are used
+                        strictly for scanning and are not recorded.</li>
+                    <li><i class="fas fa-check"></i> <strong>Cookies:</strong> We use local storage only to save your
+                        scan history for your convenience.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.js"></script>
-    <!--  jQuery -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <!-- jQuery QR Code generator -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
-
-    <script src="./qrGenerator.js"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>
