@@ -68,7 +68,29 @@ Feel free to check the [issues page](https://github.com/arundada9000/Qr-code-sca
 
 ---
 
-Made with ❤️ by Arun Neupane
+## Contact Me
+
+Hello! 👋  
+I’m **Arun Neupane** from **Nepal 🇳🇵**.  
+Open to collaboration, coding discussions, projects, or just a friendly hello.
+
+---
+
+### Connect with Me
+
+[![WhatsApp](https://img.shields.io/badge/WhatsApp-Chat-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://wa.me/9779811420975)
+[![Facebook](https://img.shields.io/badge/Facebook-arundada9000-1877F2?style=for-the-badge&logo=facebook&logoColor=white)](https://facebook.com/arundada9000)
+[![Instagram](https://img.shields.io/badge/Instagram-arundada9000-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://instagram.com/arundada9000)
+[![GitHub](https://img.shields.io/badge/GitHub-arundada9000-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/arundada9000)
+[![YouTube](https://img.shields.io/badge/YouTube-arundada9000-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtube.com/@arundada9000)
+[![Email](https://img.shields.io/badge/Email-arunneupane0000@gmail.com-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:arunneupane0000@gmail.com)
+
+---
+
+**Location:** Nepal  
+_Let’s build something awesome together!_
 
 _In a world full of links, be a portal._
 _**QR Codes: Because life is too short to manually type a URL.**_
+
+Made with ❤️ by Arun Neupane
