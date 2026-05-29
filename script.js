@@ -209,16 +209,17 @@ function renderHistory() {
   const history = JSON.parse(localStorage.getItem("qr_logs") || "[]");
   historyList.innerHTML = history.length
     ? history
-        .map(
-          (h) => `
+        .map((h) => {
+          const escaped = String(h).replace(/'/g, "\\'");
+          return `
         <div class="history-item">
             <span><i class="fas fa-history"></i> ${h.substring(0, 35)}${
             h.length > 35 ? "..." : ""
           }</span>
-            <button class="btn-text" onclick="copyToClipboard('${h}')"><i class="fas fa-copy copy-btn"></i></button>
+            <button class="btn-text" onclick="copyToClipboard('${escaped}')"><i class="fas fa-copy copy-btn"></i></button>
         </div>
-    `
-        )
+    `;
+        })
         .join("")
     : '<p class="empty-text">No recent items</p>';
 }
@@ -236,8 +237,8 @@ document.getElementById("darkModeToggle").onclick = () => {
 toggleCamBtn.onclick = toggleCamera;
 renderHistory();
 
-mainInput.value = "I love you Pooju";
-typeSelect.value = "text";
+mainInput.value = "https://easyqrcreate.netlify.app/";
+typeSelect.value = "url";
 updateQR();
 
 // Keep footer copyright year current
