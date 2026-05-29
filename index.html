@@ -23,6 +23,13 @@
     <!-- Favicon -->
     <link rel="icon" href="./images/qr-code-50.png" type="image/x-icon">
 
+    <!-- PWA -->
+    <link rel="manifest" href="./manifest.json">
+    <meta name="theme-color" content="#6366f1">
+    <link rel="apple-touch-icon" href="./images/icon-192.png">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
     <!-- Open Graph / Facebook -->
     <meta property="og:title" content="Sajilo QR Generator & Scanner | Free Online QR Code Tool">
     <meta property="og:description"
@@ -81,10 +88,20 @@
 <body class="dark-mode">
     <div id="darkModeToggle" class="theme-btn">🌙</div>
 
+    <div id="installContainer" class="install-hidden">
+        <button id="installBtn" class="install-btn"><i class="fas fa-download"></i> Install App</button>
+    </div>
+
     <div class="main-wrapper">
         <header>
-            <h1>Sajilo<span>QR</span></h1>
+            <h1><a href="./index.html" class="brand-link">Sajilo<span>QR</span></a></h1>
             <p>Smart Generator & Scanner</p>
+            <nav class="main-nav" aria-label="Main navigation">
+                <a href="./index.html" class="active">Home</a>
+                <a href="./blog.html">Guides</a>
+                <a href="./about.html">About</a>
+                <a href="./contact.html">Contact</a>
+            </nav>
         </header>
 
         <div class="grid-container">
@@ -168,11 +185,12 @@
             </ul>
 
             <h3>Wi-Fi QR codes, explained</h3>
-            <p>A Wi-Fi QR code isn't magic &mdash; it encodes a short standard string that phones recognise, in the form <code>WIFI:S:YourNetwork;T:WPA;P:YourPassword;;</code>. When scanned, the phone reads the name and password and offers to join. It's genuinely useful for a home guest network or a cafe: print it, stick it on the wall, and visitors connect without you ever reading out a password.</p>
+            <p>A Wi-Fi QR code isn't magic &mdash; it encodes a short standard string that phones recognise, in the form <code>WIFI:S:YourNetwork;T:WPA;P:YourPassword;;</code>. When scanned, the phone reads the name and password and offers to join. It's genuinely useful for a home guest network or a cafe: print it, stick it on the wall, and visitors connect without you ever reading out a password. For a full walkthrough, including the security caveats most guides skip, see <a href="guides/wifi-qr-code.html">Wi-Fi QR codes explained</a>.</p>
             <p><strong>One important caveat:</strong> the password is stored inside the code as readable text. Anyone who scans the code (or photographs it) can recover the password, so only share a Wi-Fi QR code with people you'd trust with the password itself. For a public space, use a dedicated guest network rather than your main one.</p>
 
             <h3>How QR codes actually work</h3>
-            <p>A QR ("Quick Response") code is a grid of black and white squares that stores data in two dimensions, which is why it holds far more than a traditional barcode. A few parts are worth knowing:</p>
+            <p>A QR ("Quick Response") code is a grid of black and white squares that stores data in two dimensions, which is why it holds far more than a traditional barcode. A few parts are worth knowing:
+            <a href="guides/how-qr-codes-work.html">Our deep-dive on QR code technology</a> explains the details, but here are the essentials:</p>
             <ul>
                 <li><strong>Finder patterns:</strong> the three large squares in the corners let a camera locate and orient the code at any angle.</li>
                 <li><strong>Error correction:</strong> QR codes use Reed&ndash;Solomon coding, so a code still scans even if part of it is dirty, damaged, or covered by a logo. You choose how much resilience to build in (see the table below).</li>
@@ -210,7 +228,7 @@
             </div>
 
             <h3>Scanning safely: the "quishing" risk</h3>
-            <p>Because a QR code hides its destination until you scan it, criminals have started using them for phishing &mdash; a trick now called <strong>"quishing"</strong>. A common version is a printed sticker with a malicious code placed over a legitimate one on a parking meter, restaurant table, or public poster. The scan opens a convincing fake page that asks for a password or card details.</p>
+            <p>Because a QR code hides its destination until you scan it, criminals have started using them for phishing &mdash; a trick now called <strong>"quishing"</strong>. A common version is a printed sticker with a malicious code placed over a legitimate one on a parking meter, restaurant table, or public poster. The scan opens a convincing fake page that asks for a password or card details. The full picture &mdash; including how to spot a tampered code &mdash; is in our <a href="guides/qr-code-safety.html">QR code safety guide</a>.</p>
             <p>A few habits keep you safe:</p>
             <ul>
                 <li><strong>Preview the link before opening it.</strong> SajiloQR's scanner shows you the decoded text <em>first</em>, so you can read the address before deciding to visit it.</li>
@@ -242,6 +260,46 @@
             <p>Yes. Once a code is generated, the <strong>Download PNG</strong> button saves a crisp image you can drop into a document, poster, or slide.</p>
 
             <p>Found a problem or want a feature added? Reach me through the <a href="https://allunitconverter.netlify.app/contact">contact page</a> &mdash; corrections and suggestions are always welcome.</p>
+
+            <h3>Guides &amp; tutorials</h3>
+            <p>Want to go further? The guides below cover the practical side of QR codes in depth &mdash; how to make them, how they work, and how to use them safely.</p>
+            <div class="related-grid">
+                <div class="article-card">
+                    <p class="article-meta">Beginner guide</p>
+                    <h3><a href="guides/how-to-create-a-qr-code.html">How to Create a QR Code</a></h3>
+                    <p>A complete, step-by-step walkthrough for links, text, and Wi-Fi.</p>
+                </div>
+                <div class="article-card">
+                    <p class="article-meta">Explainer</p>
+                    <h3><a href="guides/wifi-qr-code.html">Wi-Fi QR Codes Explained</a></h3>
+                    <p>Share your network with one scan &mdash; and know the security caveats.</p>
+                </div>
+                <div class="article-card">
+                    <p class="article-meta">Technology</p>
+                    <h3><a href="guides/how-qr-codes-work.html">How QR Codes Work</a></h3>
+                    <p>The finder patterns and error correction inside every code.</p>
+                </div>
+                <div class="article-card">
+                    <p class="article-meta">Business</p>
+                    <h3><a href="guides/qr-codes-for-restaurants.html">QR Codes for Restaurants</a></h3>
+                    <p>Menus, ordering, and marketing that doesn't annoy customers.</p>
+                </div>
+                <div class="article-card">
+                    <p class="article-meta">Comparison</p>
+                    <h3><a href="guides/qr-code-vs-barcode.html">QR Code vs Barcode</a></h3>
+                    <p>Two dimensions of difference &mdash; and when to use each.</p>
+                </div>
+                <div class="article-card">
+                    <p class="article-meta">Design &amp; printing</p>
+                    <h3><a href="guides/qr-code-printing-best-practices.html">QR Code Printing Best Practices</a></h3>
+                    <p>Size, contrast, quiet zone &mdash; make printed codes scan first time.</p>
+                </div>
+                <div class="article-card">
+                    <p class="article-meta">Security</p>
+                    <h3><a href="guides/qr-code-safety.html">QR Code Scams and "Quishing"</a></h3>
+                    <p>How to scan any code safely, at the counter or on the street.</p>
+                </div>
+            </div>
         </article>
     </div>
 
@@ -275,11 +333,10 @@
                 <h3>Quick Links</h3>
                 <ul>
                     <li><a href="./index.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="./about.html"><i class="fas fa-user"></i> About</a></li>
+                    <li><a href="./blog.html"><i class="fas fa-book-open"></i> Guides</a></li>
                     <li><a href="./privacy.html"><i class="fas fa-shield-alt"></i> Privacy Policy</a></li>
                     <li><a href="./contact.html"><i class="fas fa-envelope"></i> Contact Me</a></li>
-                    <li><a href="https://github.com/arundada9000/Qr-code-scanner-and-generator"><i
-                                class="fas fa-code-branch"></i> Source Code</a></li>
-                    <li><a href="./prev.html" target="_blank" rel="noopener">Previous Version</a></li>
                 </ul>
             </div>
         </div>
@@ -293,6 +350,49 @@
     <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <script src="script.js"></script>
+    <script>
+        let deferredInstall = null;
+        const installContainer = document.getElementById("installContainer");
+        const installBtn = document.getElementById("installBtn");
+        const isStandalone = window.matchMedia("(display-mode: standalone)").matches || navigator.standalone === true;
+        const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
+
+        if (!isStandalone) {
+            window.addEventListener("beforeinstallprompt", (e) => {
+                e.preventDefault();
+                deferredInstall = e;
+                installContainer.classList.remove("install-hidden");
+            });
+        }
+
+        if (isIOS && !isStandalone) {
+            installContainer.classList.remove("install-hidden");
+            installBtn.innerHTML = '<i class="fas fa-mobile-alt"></i> Add to Home Screen';
+            installBtn.onclick = () => {
+                alert('Tap the Share button in Safari, then choose "Add to Home Screen".');
+            };
+        }
+
+        if (installBtn && !isIOS && !isStandalone) {
+            installBtn.onclick = async () => {
+                if (!deferredInstall) return;
+                deferredInstall.prompt();
+                await deferredInstall.userChoice;
+                deferredInstall = null;
+                installContainer.classList.add("install-hidden");
+            };
+        }
+
+        window.addEventListener("appinstalled", () => {
+            installContainer.classList.add("install-hidden");
+        });
+
+        if ("serviceWorker" in navigator) {
+            window.addEventListener("load", () => {
+                navigator.serviceWorker.register("./sw.js").catch(() => {});
+            });
+        }
+    </script>
 </body>
 
 </html>
