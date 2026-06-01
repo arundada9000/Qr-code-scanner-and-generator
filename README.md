@@ -1,4 +1,4 @@
-# SajiloQR
+﻿# SajiloQR
 
 ### Modern QR Code Generator & Real-time Scanner
 
@@ -46,7 +46,7 @@ SajiloQR is a high-performance, privacy-focused web application designed to gene
 | ![Desktop Screenshot](./images/preview.png)  | ![Mobile Screenshot](./images/mobile-preview1.png) |
 | ![Desktop Screenshot](./images/preview2.png) | ![Mobile Screenshot](./images/mobile-preview2.png) |
 
-## 🛡️ Privacy Policy
+##  Privacy Policy
 
 This application respects user privacy:
 
@@ -70,8 +70,8 @@ Feel free to check the [issues page](https://github.com/arundada9000/Qr-code-sca
 
 ## Contact Me
 
-Hello! 👋  
-I’m **Arun Neupane** from **Nepal 🇳🇵**.  
+Hello!   
+I’m **Arun Neupane** from **Nepal **.  
 Open to collaboration, coding discussions, projects, or just a friendly hello.
 
 ---
@@ -93,4 +93,9 @@ _Let’s build something awesome together!_
 _In a world full of links, be a portal._
 _**QR Codes: Because life is too short to manually type a URL.**_
 
-Made with ❤️ by Arun Neupane
+Made with ❤ by Arun Neupane
+---
+
+## License
+
+This project is for educational and personal learning purposes only. Commercial use, public deployment, or any revenue-generating use requires explicit written permission from the author. See [LICENSE](LICENSE) for details.
