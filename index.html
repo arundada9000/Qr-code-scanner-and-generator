@@ -54,7 +54,7 @@
   "@type": "SoftwareApplication",
   "name": "Sajilo QR Generator & Scanner",
   "url": "https://easyqrcreate.netlify.app/",
-  "image": "https://easyqrcreate.netlify.app/assets/images/og-image.png",
+  "image": "https://easyqrcreate.netlify.app/images/og-image.png",
   "description": "Create and scan QR codes online instantly, ad-free, and for free. Easy-to-use QR generator and scanner by Arun Neupane.",
   "applicationCategory": "https://schema.org/BusinessApplication",
   "operatingSystem": "Web",
@@ -154,6 +154,95 @@
                 <p class="empty-text">No recent items</p>
             </div>
         </section>
+
+        <article class="glass-card content-article" id="guide">
+            <h2>How to Use <span>SajiloQR</span>: A Practical Guide to QR Codes</h2>
+            <p>SajiloQR creates and reads QR codes entirely inside your browser. There is no sign-up, nothing you type is sent to a server, and it keeps working after the page has loaded. This guide walks through making each type of code, explains how QR codes actually work under the hood, and &mdash; the part most tools skip &mdash; how to scan unfamiliar codes safely. It is built and maintained by Arun Neupane, a web developer from Parbat, Nepal, who reads every message sent through the contact link below.</p>
+
+            <h3>Making a QR code, step by step</h3>
+            <p>Use the <strong>Create QR</strong> card at the top of the page. Pick a type from the dropdown, fill in the field, and the code renders instantly &mdash; then click <strong>Download PNG</strong> to save it.</p>
+            <ul>
+                <li><strong>URL / Website:</strong> Paste any link (for example <em>https://example.com</em>). When someone scans the result, their phone offers to open that page. This is the most common use &mdash; menus, posters, packaging.</li>
+                <li><strong>Plain Text:</strong> Encodes any text directly into the code. The scanner simply shows the words &mdash; handy for serial numbers, short notes, Wi-Fi-free instructions, or a message on a gift.</li>
+                <li><strong>Wi-Fi Network:</strong> Enter your network name (SSID) and password, and SajiloQR builds a special code that connects a phone to your Wi-Fi on a single scan &mdash; no typing the password at all.</li>
+            </ul>
+
+            <h3>Wi-Fi QR codes, explained</h3>
+            <p>A Wi-Fi QR code isn't magic &mdash; it encodes a short standard string that phones recognise, in the form <code>WIFI:S:YourNetwork;T:WPA;P:YourPassword;;</code>. When scanned, the phone reads the name and password and offers to join. It's genuinely useful for a home guest network or a cafe: print it, stick it on the wall, and visitors connect without you ever reading out a password.</p>
+            <p><strong>One important caveat:</strong> the password is stored inside the code as readable text. Anyone who scans the code (or photographs it) can recover the password, so only share a Wi-Fi QR code with people you'd trust with the password itself. For a public space, use a dedicated guest network rather than your main one.</p>
+
+            <h3>How QR codes actually work</h3>
+            <p>A QR ("Quick Response") code is a grid of black and white squares that stores data in two dimensions, which is why it holds far more than a traditional barcode. A few parts are worth knowing:</p>
+            <ul>
+                <li><strong>Finder patterns:</strong> the three large squares in the corners let a camera locate and orient the code at any angle.</li>
+                <li><strong>Error correction:</strong> QR codes use Reed&ndash;Solomon coding, so a code still scans even if part of it is dirty, damaged, or covered by a logo. You choose how much resilience to build in (see the table below).</li>
+                <li><strong>Versions:</strong> codes come in sizes from 21&times;21 up to 177&times;177 modules. More data needs a bigger, denser grid.</li>
+            </ul>
+
+            <h4>How much data fits in one QR code</h4>
+            <div class="table-scroll">
+            <table class="qr-table">
+                <thead>
+                    <tr><th>Data type</th><th>Maximum capacity</th><th>Typical use</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Numbers only</td><td>7,089 digits</td><td>Reference IDs, tracking numbers</td></tr>
+                    <tr><td>Letters &amp; numbers</td><td>4,296 characters</td><td>URLs, product codes</td></tr>
+                    <tr><td>Bytes (UTF-8 text)</td><td>2,953 bytes</td><td>Free text, most real-world content</td></tr>
+                </tbody>
+            </table>
+            </div>
+            <p>In practice you rarely approach these limits: a normal website link uses only a few dozen characters, which keeps the code sparse and easy to scan. The more data you pack in, the denser the code becomes and the more careful you must be with print size and contrast.</p>
+
+            <h4>Error-correction levels</h4>
+            <div class="table-scroll">
+            <table class="qr-table">
+                <thead>
+                    <tr><th>Level</th><th>Data recoverable if damaged</th><th>Best for</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>L (Low)</td><td>~7%</td><td>Clean digital screens</td></tr>
+                    <tr><td>M (Medium)</td><td>~15%</td><td>General printing (the common default)</td></tr>
+                    <tr><td>Q (Quartile)</td><td>~25%</td><td>Codes with a logo in the centre</td></tr>
+                    <tr><td>H (High)</td><td>~30%</td><td>Harsh environments, stickers, packaging</td></tr>
+                </tbody>
+            </table>
+            </div>
+
+            <h3>Scanning safely: the "quishing" risk</h3>
+            <p>Because a QR code hides its destination until you scan it, criminals have started using them for phishing &mdash; a trick now called <strong>"quishing"</strong>. A common version is a printed sticker with a malicious code placed over a legitimate one on a parking meter, restaurant table, or public poster. The scan opens a convincing fake page that asks for a password or card details.</p>
+            <p>A few habits keep you safe:</p>
+            <ul>
+                <li><strong>Preview the link before opening it.</strong> SajiloQR's scanner shows you the decoded text <em>first</em>, so you can read the address before deciding to visit it.</li>
+                <li><strong>Look for tampering.</strong> A sticker stuck over the original code, or a code that looks out of place, is a red flag.</li>
+                <li><strong>Never enter passwords or payment details</strong> on a page you reached by scanning an unexpected code.</li>
+                <li><strong>Be wary of shortened links</strong> (like bit.ly) in a QR code, since they hide the real destination.</li>
+            </ul>
+
+            <h3>Common uses for QR codes</h3>
+            <ul>
+                <li><strong>Sharing Wi-Fi</strong> with guests without reading out a password</li>
+                <li><strong>Restaurant menus</strong> and contactless ordering</li>
+                <li><strong>Business cards</strong> that add a contact to a phone in one scan</li>
+                <li><strong>Event tickets</strong> and boarding passes</li>
+                <li><strong>Payments</strong> and app-download links on packaging and posters</li>
+            </ul>
+
+            <h3>Frequently asked questions</h3>
+            <h4>Do QR codes expire?</h4>
+            <p>A standard (static) QR code never expires &mdash; the data is baked into the pattern itself, so a code you print today will scan years from now. Only "dynamic" QR codes, which point to a redirect run by a third-party service, can stop working if that service shuts the link down. SajiloQR generates static codes, so yours won't expire.</p>
+
+            <h4>Is this tool free, and does it store my data?</h4>
+            <p>It's completely free, with no account required. All generation and scanning run locally in your browser; your links, text, Wi-Fi passwords, and camera feed are never uploaded. Your recent history is saved only in your own browser's local storage, and the <strong>Clear All</strong> button wipes it instantly.</p>
+
+            <h4>Why won't my QR code scan?</h4>
+            <p>The usual causes are low contrast (always use dark on a light background, not the reverse), printing it too small, packing in too much data, or damage covering more than the error-correction level can recover. Give the code a quiet margin of empty space around it and keep it at least 2&nbsp;cm wide when printed.</p>
+
+            <h4>Can I download the QR code as an image?</h4>
+            <p>Yes. Once a code is generated, the <strong>Download PNG</strong> button saves a crisp image you can drop into a document, poster, or slide.</p>
+
+            <p>Found a problem or want a feature added? Reach me through the <a href="https://allunitconverter.netlify.app/contact">contact page</a> &mdash; corrections and suggestions are always welcome.</p>
+        </article>
     </div>
 
     <footer class="main-footer">
@@ -185,9 +274,9 @@
             <div class="footer-nav">
                 <h3>Quick Links</h3>
                 <ul>
-                    <li><a href="#" id="openPrivacy"><i class="fas fa-shield-alt"></i> Privacy Policy</a></li>
-                    <li><a href="https://allunitconverter.netlify.app/contact"><i class="fas fa-envelope"></i> Contact
-                            Me</a></li>
+                    <li><a href="./index.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="./privacy.html"><i class="fas fa-shield-alt"></i> Privacy Policy</a></li>
+                    <li><a href="./contact.html"><i class="fas fa-envelope"></i> Contact Me</a></li>
                     <li><a href="https://github.com/arundada9000/Qr-code-scanner-and-generator"><i
                                 class="fas fa-code-branch"></i> Source Code</a></li>
                     <li><a href="./prev.html" target="_blank" rel="noopener">Previous Version</a></li>
@@ -196,29 +285,11 @@
         </div>
 
         <div class="footer-bottom">
-            <p>&copy; 2026 <strong>Arun Neupane</strong>. Crafted with <i class="fas fa-heart pulse"></i> for the Web.
+            <p>&copy; <span id="year">2026</span> <strong>Arun Neupane</strong>. Crafted with <i class="fas fa-heart pulse"></i> for the Web.
             </p>
         </div>
     </footer>
 
-    <div id="privacyModal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <h2>Privacy Policy</h2>
-            <div class="modal-body">
-                <p><strong>Last Updated: January 2026</strong></p>
-                <p>Your privacy is important to us. This tool operates primarily on the client-side:</p>
-                <ul>
-                    <li><i class="fas fa-check"></i> <strong>Local Processing:</strong> All QR generation and scanning
-                        happen in your browser. We do not store your data on our servers.</li>
-                    <li><i class="fas fa-check"></i> <strong>Camera Access:</strong> Camera permissions are used
-                        strictly for scanning and are not recorded.</li>
-                    <li><i class="fas fa-check"></i> <strong>Cookies:</strong> We use local storage only to save your
-                        scan history for your convenience.</li>
-                </ul>
-            </div>
-        </div>
-    </div>
     <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <script src="script.js"></script>
