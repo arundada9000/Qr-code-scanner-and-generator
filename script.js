@@ -7,10 +7,6 @@ const canvasContainer = document.getElementById("canvasContainer");
 const downloadBtn = document.getElementById("downloadBtn");
 const historyList = document.getElementById("historyList");
 
-const modal = document.getElementById("privacyModal");
-const openBtn = document.getElementById("openPrivacy");
-const closeBtn = document.querySelector(".close-modal");
-
 // Add this inside your updateQR function after qrcode.makeCode(data);
 function rotateLogo() {
   const logo = document.querySelector("header h1");
@@ -24,21 +20,6 @@ function rotateLogo() {
     logo.style.transform = "rotate(0deg)";
   }, 600);
 }
-
-openBtn.onclick = (e) => {
-  e.preventDefault();
-  modal.style.display = "block";
-};
-
-closeBtn.onclick = () => {
-  modal.style.display = "none";
-};
-
-window.onclick = (event) => {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-};
 
 // Generator Instance
 let qrcode = new QRCode(canvasContainer, {
@@ -258,3 +239,7 @@ renderHistory();
 mainInput.value = "I love you Pooju";
 typeSelect.value = "text";
 updateQR();
+
+// Keep footer copyright year current
+const yearEl = document.getElementById("year");
+if (yearEl) yearEl.textContent = new Date().getFullYear();
