@@ -4,24 +4,78 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
-
 
 <url>
   <loc>https://easyqrcreate.netlify.app/</loc>
-  <lastmod>2026-07-22T00:00:00+00:00</lastmod>
+  <lastmod>2026-08-09T00:00:00+00:00</lastmod>
+  <changefreq>weekly</changefreq>
   <priority>1.00</priority>
 </url>
 <url>
+  <loc>https://easyqrcreate.netlify.app/blog</loc>
+  <lastmod>2026-08-09T00:00:00+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://easyqrcreate.netlify.app/about</loc>
+  <lastmod>2026-08-09T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.70</priority>
+</url>
+<url>
+  <loc>https://easyqrcreate.netlify.app/guides/how-to-create-a-qr-code</loc>
+  <lastmod>2026-08-09T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://easyqrcreate.netlify.app/guides/wifi-qr-code</loc>
+  <lastmod>2026-08-09T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://easyqrcreate.netlify.app/guides/how-qr-codes-work</loc>
+  <lastmod>2026-08-09T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://easyqrcreate.netlify.app/guides/qr-codes-for-restaurants</loc>
+  <lastmod>2026-08-09T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://easyqrcreate.netlify.app/guides/qr-code-vs-barcode</loc>
+  <lastmod>2026-08-09T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://easyqrcreate.netlify.app/guides/qr-code-printing-best-practices</loc>
+  <lastmod>2026-08-09T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://easyqrcreate.netlify.app/guides/qr-code-safety</loc>
+  <lastmod>2026-08-09T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
   <loc>https://easyqrcreate.netlify.app/privacy</loc>
-  <lastmod>2026-07-22T00:00:00+00:00</lastmod>
-  <priority>0.50</priority>
+  <lastmod>2026-08-09T00:00:00+00:00</lastmod>
+  <changefreq>yearly</changefreq>
+  <priority>0.40</priority>
 </url>
 <url>
   <loc>https://easyqrcreate.netlify.app/contact</loc>
-  <lastmod>2026-07-22T00:00:00+00:00</lastmod>
+  <lastmod>2026-08-09T00:00:00+00:00</lastmod>
+  <changefreq>yearly</changefreq>
   <priority>0.50</priority>
 </url>
-
 
 </urlset>
