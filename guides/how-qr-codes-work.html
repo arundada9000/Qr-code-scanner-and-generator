@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>How QR Codes Work: The Technology Under the Squares | SajiloQR</title>
+    <meta name="description"
+        content="How QR codes store data: the three corner finder patterns, Reed-Solomon error correction, module sizes, and why a damaged code still scans. Explained clearly.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://easyqrcreate.netlify.app/guides/how-qr-codes-work">
+
+    <link rel="icon" href="../images/qr-code-50.png" type="image/x-icon">
+
+    <link rel="manifest" href="../manifest.json">
+    <meta name="theme-color" content="#6366f1">
+    <link rel="apple-touch-icon" href="../images/icon-192.png">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <meta property="og:title" content="How QR Codes Work: The Technology Under the Squares | SajiloQR">
+    <meta property="og:description"
+        content="Finder patterns, error correction, and data encoding &mdash; a clear explainer of the technology inside every QR code.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://easyqrcreate.netlify.app/guides/how-qr-codes-work">
+    <meta property="og:image" content="https://easyqrcreate.netlify.app/images/og-image.png">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="How QR Codes Work | SajiloQR">
+    <meta name="twitter:description"
+        content="Finder patterns, error correction, and data encoding &mdash; a clear explainer of QR code technology.">
+    <meta name="twitter:image" content="https://easyqrcreate.netlify.app/images/og-image.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../styles.css">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "How QR Codes Work: The Technology Under the Squares",
+      "description": "A clear explainer of how QR codes store data, including finder patterns and Reed-Solomon error correction.",
+      "author": { "@type": "Person", "name": "Arun Neupane" },
+      "publisher": { "@type": "Organization", "name": "EasyQRCreate" },
+      "datePublished": "2026-07-22",
+      "dateModified": "2026-07-22",
+      "mainEntityOfPage": "https://easyqrcreate.netlify.app/guides/how-qr-codes-work"
+    }
+    </script>
+</head>
+
+<body class="dark-mode">
+    <div id="darkModeToggle" class="theme-btn">🌙</div>
+
+    <div id="installContainer" class="install-hidden">
+        <button id="installBtn" class="install-btn"><i class="fas fa-download"></i> Install App</button>
+    </div>
+
+    <div class="main-wrapper">
+        <header>
+            <h1><a href="../index.html" class="brand-link">Sajilo<span>QR</span></a></h1>
+            <p>Guides &amp; Tutorials</p>
+            <nav class="main-nav" aria-label="Main navigation">
+                <a href="../index.html">Home</a>
+                <a href="../blog.html">Guides</a>
+                <a href="../about.html">About</a>
+                <a href="../contact.html">Contact</a>
+            </nav>
+        </header>
+
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../index.html">Home</a> &rsaquo; <a href="../blog.html">Guides</a> &rsaquo; <span>How QR Codes Work</span>
+        </nav>
+
+        <article class="glass-card content-article">
+            <h2>How QR Codes <span>Work</span></h2>
+            <p>At first glance a QR code looks like random noise. Under the hood it's a carefully designed two-dimensional grid that stores data redundantly enough to survive dirt, damage, and bad lighting. This article explains the pieces you can see &mdash; and the clever error-correction maths you can't &mdash; in plain language.</p>
+
+            <h3>The basic idea: modules on a grid</h3>
+            <p>A QR code is a square grid of small black and white cells called <strong>modules</strong>. Each module is one bit of information: black is a 1, white is a 0. The scanner samples the grid, reads the pattern as a stream of bits, and reassembles the text you encoded. That's the whole concept &mdash; everything else is engineering that makes it fast, robust, and readable at odd angles.</p>
+
+            <h3>The three corner squares: finder patterns</h3>
+            <p>Look at any QR code and you'll see three identical square-in-a-square patterns &mdash; one in each corner except the bottom-right. These are the <strong>finder patterns</strong>, and they do exactly what the name suggests: they let the camera find the code and work out its orientation. The 1:1:3:1:1 ratio of dark and light rings is unique enough that the scanner can pick it out even in a cluttered scene, no matter how the code is rotated or flipped. With three corner patterns located, the software calculates the grid size and skew, then samples each cell.</p>
+
+            <h3>Why it reads at any angle</h3>
+            <p>This is the big difference from a traditional barcode. A barcode is one-dimensional &mdash; it stores data as a horizontal strip and must be scanned roughly level. A QR code stores data in two dimensions and is anchored by those three corner patterns, so the scanner can work out the perspective from any angle. Flip it upside down and it still reads. Photograph it from a slight angle and the software mathematically de-skews the grid before reading it.</p>
+
+            <h3>Encoding: how text becomes bits</h3>
+            <p>Before anything is drawn, the text is converted to binary using the most compact mode it supports:</p>
+            <ul>
+                <li><strong>Numeric mode</strong> &mdash; digits only, packed three at a time (the densest storage).</li>
+                <li><strong>Alphanumeric mode</strong> &mdash; uppercase letters, digits, and a small set of symbols.</li>
+                <li><strong>Byte mode</strong> &mdash; UTF-8 text and arbitrary data, which is what most real-world codes use.</li>
+                <li><strong>Kanji mode</strong> &mdash; a specialised encoding for Japanese characters.</li>
+            </ul>
+            <p>The bit stream is then spread across the grid in a deliberate, zig-zagging path that's designed to smear damage across the whole code rather than wiping out one region &mdash; this is called <strong>masking</strong>, and the chosen pattern is itself recorded so the scanner can reverse it.</p>
+
+            <h3>Reed&ndash;Solomon error correction: the real magic</h3>
+            <p>Here's where QR codes get genuinely clever. Alongside your data, the code stores <strong>Reed&ndash;Solomon</strong> error-correction bytes &mdash; extra information computed from the data using polynomial maths. This redundancy means the scanner can <em>reconstruct</em> missing modules instead of failing. There are four levels, and you choose how much redundancy to trade away:</p>
+            <div class="table-scroll">
+            <table class="qr-table">
+                <thead>
+                    <tr><th>Level</th><th>Data recoverable</th><th>Best for</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>L (Low)</td><td>~7%</td><td>Clean digital screens</td></tr>
+                    <tr><td>M (Medium)</td><td>~15%</td><td>General printing, the common default</td></tr>
+                    <tr><td>Q (Quartile)</td><td>~25%</td><td>Codes with a logo in the centre</td></tr>
+                    <tr><td>H (High)</td><td>~30%</td><td>Harsh environments, stickers, packaging</td></tr>
+                </tbody>
+            </table>
+            </div>
+            <p>This is why a code with a sticker over part of it, a coffee ring, or a logo in the middle can still scan &mdash; the missing modules are treated as errors and repaired. SajiloQR generates codes at the highest level (H), so the codes you make have the best chance of surviving the real world.</p>
+
+            <h3>Versions and capacity</h3>
+            <p>QR codes come in 40 numbered "versions", from a 21&times;21 grid (Version 1) up to 177&times;177 modules (Version 40). More data needs more modules, which means a denser, busier-looking code that's harder to scan at small sizes. In practice, a URL is a few dozen characters and sits comfortably in a small, sparse code:</p>
+            <div class="table-scroll">
+            <table class="qr-table">
+                <thead>
+                    <tr><th>Data type</th><th>Maximum capacity</th><th>Typical use</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Numbers only</td><td>7,089 digits</td><td>Reference IDs, tracking numbers</td></tr>
+                    <tr><td>Letters &amp; numbers</td><td>4,296 characters</td><td>URLs, product codes</td></tr>
+                    <tr><td>Bytes (UTF-8 text)</td><td>2,953 bytes</td><td>Free text, most real-world content</td></tr>
+                </tbody>
+            </table>
+            </div>
+            <p>The practical lesson: keep your content short. A short URL makes a sparse code that's easy to scan from across the room; a paragraph of text makes a dense one that needs to be big and close.</p>
+
+            <h3>Alignment and timing patterns</h3>
+            <p>Beyond the corner finders, larger codes carry two more helper systems. <strong>Alignment patterns</strong> &mdash; smaller square-in-square marks &mdash; appear in the interior of big codes so the scanner can correct for distortion as it works across the grid. <strong>Timing patterns</strong> are alternating black-and-white rows/columns that tell the scanner exactly where one module ends and the next begins, keeping the sampling grid accurate.</p>
+
+            <h3>Quiet zone: the border that matters</h3>
+            <p>A QR code needs a clear white margin around it called the <strong>quiet zone</strong>, at least four modules wide. It's not decoration &mdash; the scanner uses it to tell where the code ends and the world begins. When codes sit flush against other graphics or text, scanning fails. This is why SajiloQR's PNG download already includes the quiet zone for you.</p>
+
+            <h3>Putting it all together</h3>
+            <p>So the full picture is: your text becomes bits, the bits are split into data and error-correction blocks, the blocks are woven across a grid, helper patterns are added for locating and aligning, and the whole thing is masked and bordered by a quiet zone. When a camera scans it, the finder patterns orient the reader, the timing patterns keep it aligned, the mask is reversed, the bits are read back, and the Reed&ndash;Solomon bytes quietly repair anything damaged along the way.</p>
+            <p>It's an elegant system &mdash; and you can put it to work right now with the <a href="../index.html">generator</a>, or brush up on <a href="qr-code-vs-barcode.html">how it compares to the humble barcode</a>.</p>
+
+            <div class="cta-wrap">
+                <a href="../index.html" class="btn primary">Try the generator</a>
+            </div>
+
+            <div class="related-grid">
+                <div class="article-card">
+                    <p class="article-meta">Related guide</p>
+                    <h3><a href="how-to-create-a-qr-code.html">How to Create a QR Code</a></h3>
+                    <p>Put the theory into practice with a step-by-step walkthrough.</p>
+                </div>
+                <div class="article-card">
+                    <p class="article-meta">Related guide</p>
+                    <h3><a href="qr-code-vs-barcode.html">QR Code vs Barcode</a></h3>
+                    <p>Two dimensions of difference &mdash; when to reach for each.</p>
+                </div>
+                <div class="article-card">
+                    <p class="article-meta">Related guide</p>
+                    <h3><a href="qr-code-printing-best-practices.html">QR Code Printing Best Practices</a></h3>
+                    <p>Turn the quiet-zone theory into printed codes that work.</p>
+                </div>
+            </div>
+        </article>
+    </div>
+
+    <footer class="main-footer">
+        <div class="footer-wave">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                preserveAspectRatio="none">
+                <path
+                    d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+                    class="shape-fill"></path>
+            </svg>
+        </div>
+
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h2>Sajilo<span>QR</span></h2>
+                <p>Empowering your digital connectivity with secure and fast QR solutions.</p>
+                <div class="social-links">
+                    <a href="https://github.com/arundada9000" target="_blank" rel="noopener" title="GitHub"><i
+                                class="fab fa-github"></i></a>
+                    <a href="https://youtube.com/@arundada9000" target="_blank" rel="noopener" title="YouTube"><i
+                                class="fab fa-youtube"></i></a>
+                    <a href="https://facebook.com/arundada9000" target="_blank" rel="noopener" title="Facebook"><i
+                                class="fab fa-facebook"></i></a>
+                    <a href="https://instagram.com/arundada9000" target="_blank" rel="noopener" title="Instagram"><i
+                                class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-nav">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="../index.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="../about.html"><i class="fas fa-user"></i> About</a></li>
+                    <li><a href="../blog.html"><i class="fas fa-book-open"></i> Guides</a></li>
+                    <li><a href="../privacy.html"><i class="fas fa-shield-alt"></i> Privacy Policy</a></li>
+                    <li><a href="../contact.html"><i class="fas fa-envelope"></i> Contact Me</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; <span id="year">2026</span> <strong>Arun Neupane</strong>. Crafted with <i
+                    class="fas fa-heart pulse"></i> for the Web.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById("darkModeToggle").onclick = () => document.body.classList.toggle("dark-mode");
+        const y = document.getElementById("year");
+        if (y) y.textContent = new Date().getFullYear();
+        let deferredInstall = null;
+        const installContainer = document.getElementById("installContainer");
+        const installBtn = document.getElementById("installBtn");
+        const isStandalone = window.matchMedia("(display-mode: standalone)").matches || navigator.standalone === true;
+        const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
+
+        if (!isStandalone) {
+            window.addEventListener("beforeinstallprompt", (e) => {
+                e.preventDefault();
+                deferredInstall = e;
+                installContainer.classList.remove("install-hidden");
+            });
+        }
+
+        if (isIOS && !isStandalone) {
+            installContainer.classList.remove("install-hidden");
+            installBtn.innerHTML = '<i class="fas fa-mobile-alt"></i> Add to Home Screen';
+            installBtn.onclick = () => {
+                alert('Tap the Share button in Safari, then choose "Add to Home Screen".');
+            };
+        }
+
+        if (installBtn && !isIOS && !isStandalone) {
+            installBtn.onclick = async () => {
+                if (!deferredInstall) return;
+                deferredInstall.prompt();
+                await deferredInstall.userChoice;
+                deferredInstall = null;
+                installContainer.classList.add("install-hidden");
+            };
+        }
+
+        window.addEventListener("appinstalled", () => {
+            installContainer.classList.add("install-hidden");
+        });
+
+        if ("serviceWorker" in navigator) {
+            window.addEventListener("load", () => {
+                navigator.serviceWorker.register("../sw.js").catch(() => {});
+            });
+        }
+    </script>
+</body>
+
+</html>
