@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Wi-Fi QR Codes Explained: Share Your Network Without Saying the Password | SajiloQR</title>
+    <meta name="description"
+        content="A Wi-Fi QR code lets guests join your network with one scan. Learn the WIFI: format, how to create a Wi-Fi QR code safely, and when not to share one.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://easyqrcreate.netlify.app/guides/wifi-qr-code">
+
+    <link rel="icon" href="../images/qr-code-50.png" type="image/x-icon">
+
+    <link rel="manifest" href="../manifest.json">
+    <meta name="theme-color" content="#6366f1">
+    <link rel="apple-touch-icon" href="../images/icon-192.png">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <meta property="og:title" content="Wi-Fi QR Codes Explained | SajiloQR">
+    <meta property="og:description"
+        content="Share your Wi-Fi with a single scan. How the WIFI: format works, how to create the code, and how to share it safely.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://easyqrcreate.netlify.app/guides/wifi-qr-code">
+    <meta property="og:image" content="https://easyqrcreate.netlify.app/images/og-image.png">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Wi-Fi QR Codes Explained | SajiloQR">
+    <meta name="twitter:description"
+        content="Share your Wi-Fi with a single scan. How it works and how to do it safely.">
+    <meta name="twitter:image" content="https://easyqrcreate.netlify.app/images/og-image.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../styles.css">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Wi-Fi QR Codes Explained: Share Your Network Without Saying the Password",
+      "description": "How the WIFI: QR format works, how to create a Wi-Fi QR code safely, and when not to share one.",
+      "author": { "@type": "Person", "name": "Arun Neupane" },
+      "publisher": { "@type": "Organization", "name": "EasyQRCreate" },
+      "datePublished": "2026-07-22",
+      "dateModified": "2026-07-22",
+      "mainEntityOfPage": "https://easyqrcreate.netlify.app/guides/wifi-qr-code"
+    }
+    </script>
+</head>
+
+<body class="dark-mode">
+    <div id="darkModeToggle" class="theme-btn">🌙</div>
+
+    <div id="installContainer" class="install-hidden">
+        <button id="installBtn" class="install-btn"><i class="fas fa-download"></i> Install App</button>
+    </div>
+
+    <div class="main-wrapper">
+        <header>
+            <h1><a href="../index.html" class="brand-link">Sajilo<span>QR</span></a></h1>
+            <p>Guides &amp; Tutorials</p>
+            <nav class="main-nav" aria-label="Main navigation">
+                <a href="../index.html">Home</a>
+                <a href="../blog.html">Guides</a>
+                <a href="../about.html">About</a>
+                <a href="../contact.html">Contact</a>
+            </nav>
+        </header>
+
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../index.html">Home</a> &rsaquo; <a href="../blog.html">Guides</a> &rsaquo; <span>Wi-Fi QR Codes Explained</span>
+        </nav>
+
+        <article class="glass-card content-article">
+            <h2>Wi-Fi QR Codes <span>Explained</span></h2>
+            <p>If you've ever been the host who reads out a long password, or the guest who squints at a garbled network name while typing it twice, a Wi-Fi QR code is the fix. It turns your network details into a code that connects a phone in a single scan &mdash; no typing at all. This guide explains how the format works, how to create one with SajiloQR, and the important security caveats most tutorials skip.</p>
+
+            <h3>What a Wi-Fi QR code actually is</h3>
+            <p>A Wi-Fi QR code is not a special kind of code. It's a normal QR code whose text happens to be a short, standardised string that phones recognise. The format looks like this:</p>
+            <p><code>WIFI:S:MyNetwork;T:WPA;P:secret123;;</code></p>
+            <p>The pieces are simple:</p>
+            <ul>
+                <li><code>WIFI:</code> &mdash; the prefix that tells the phone "this is a network".</li>
+                <li><code>S:MyNetwork</code> &mdash; the SSID (network name).</li>
+                <li><code>T:WPA</code> &mdash; the security type: WPA/WPA2, WEP, or empty for an open network.</li>
+                <li><code>P:secret123</code> &mdash; the password.</li>
+                <li>Two semicolons <code>;;</code> close the string.</li>
+            </ul>
+            <p>When the phone decodes this, it doesn't open a website &mdash; it shows a prompt to join <code>MyNetwork</code>. One tap and you're connected.</p>
+
+            <h3>How to create one with SajiloQR</h3>
+            <p>You never need to type the format above. In the <a href="../index.html">generator</a>:</p>
+            <ul>
+                <li>Set the <strong>Type</strong> dropdown to <strong>Wi-Fi Network</strong>.</li>
+                <li>Enter the network name (SSID) &mdash; exactly as it appears, including capitals and spaces.</li>
+                <li>Enter the password.</li>
+                <li>Download the PNG and test it by scanning from a phone that isn't already connected.</li>
+            </ul>
+            <p>SajiloQR builds the <code>WIFI:</code> string behind the scenes, so there's no room for a syntax typo.</p>
+
+            <h3>Why it's so handy</h3>
+            <ul>
+                <li><strong>Home guest networks</strong> &mdash; print it, stick it on the fridge, and guests join without asking.</li>
+                <li><strong>Cafes, salons, and shops</strong> &mdash; a small card on the counter replaces "the password is..." said fifty times a day.</li>
+                <li><strong>Airbnb rentals and short-stay properties</strong> &mdash; leave a printed code on the welcome card.</li>
+                <li><strong>Offices</strong> &mdash; boardroom visitors can connect themselves instead of hunting down IT.</li>
+            </ul>
+
+            <h3>The security caveat you must understand</h3>
+            <p>Here's the part worth slowing down for. The password is stored inside the code as <em>plain readable text</em>. Anyone who scans the code, photographs it, or gets their hands on the file can read the password directly. In other words:</p>
+            <ul>
+                <li>Treat a Wi-Fi QR code the way you'd treat a Post-it with the password written on it.</li>
+                <li>Don't post it publicly on social media, and don't email it around.</li>
+                <li>For a public space, share a code for a <strong>dedicated guest network</strong>, not your main network. On most routers you can create a separate SSID with its own password &mdash; and even better, one that's isolated from your main devices.</li>
+                <li>If your password leaks, change it &mdash; and generate a new code, since the old code still carries the old password.</li>
+            </ul>
+
+            <h3>Open (no-password) networks</h3>
+            <p>You can also make a code for a network with no password. The <code>T:</code> field is simply left empty. This is convenient, but remember: an open network sends traffic unencrypted, so anyone nearby can capture what visitors do. Use an open network QR code only in low-risk settings, and never for anything involving logins or payments.</p>
+
+            <h3>WPA3 and modern routers</h3>
+            <p>Newer routers use WPA2 or WPA3, and the <code>WIFI:</code> format was designed when WPA was the standard. In practice, phones handle this fine: they read the name and password and connect using the security type the network actually broadcasts. You don't need to specify WPA3 in the code &mdash; the phone figures it out. If you have an unusual setup (for example, WPA2-Enterprise with a username), the basic QR format can't express it, and you'd need your router's own QR export feature if it has one.</p>
+
+            <h3>Frequently asked questions</h3>
+            <h4>Does the code expire?</h4>
+            <p>No. Like every static QR code, it encodes the data permanently. It will connect devices years from now &mdash; as long as the network name and password still match. Change either one and you need a fresh code.</p>
+
+            <h4>Will it work with any phone?</h4>
+            <p>Nearly all modern iPhones and Android phones recognise the <code>WIFI:</code> format natively in the camera app. It's an open standard, not an Apple or Google proprietary feature.</p>
+
+            <h4>Can I see the Wi-Fi password from the code?</h4>
+            <p>Yes &mdash; scan it with a plain QR reader and the decoded text will show <code>WIFI:S:...;P:...;;</code>. That's exactly why you should guard the code itself.</p>
+
+            <p>Ready to try it? Open the <a href="../index.html">generator</a>, pick <strong>Wi-Fi Network</strong>, and create a code for your home network. Then test it from a phone on airplane mode with Wi-Fi off &mdash; it should reconnect you in one tap.</p>
+
+            <div class="cta-wrap">
+                <a href="../index.html" class="btn primary">Create a Wi-Fi QR code</a>
+            </div>
+
+            <div class="related-grid">
+                <div class="article-card">
+                    <p class="article-meta">Related guide</p>
+                    <h3><a href="how-to-create-a-qr-code.html">How to Create a QR Code</a></h3>
+                    <p>The complete beginner's walkthrough for every code type.</p>
+                </div>
+                <div class="article-card">
+                    <p class="article-meta">Related guide</p>
+                    <h3><a href="how-qr-codes-work.html">How QR Codes Work</a></h3>
+                    <p>The technology that stores a network's credentials in a grid of squares.</p>
+                </div>
+                <div class="article-card">
+                    <p class="article-meta">Related guide</p>
+                    <h3><a href="qr-code-safety.html">QR Code Scams and Quishing</a></h3>
+                    <p>Scan any code safely &mdash; including codes you didn't generate yourself.</p>
+                </div>
+            </div>
+        </article>
+    </div>
+
+    <footer class="main-footer">
+        <div class="footer-wave">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                preserveAspectRatio="none">
+                <path
+                    d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+                    class="shape-fill"></path>
+            </svg>
+        </div>
+
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h2>Sajilo<span>QR</span></h2>
+                <p>Empowering your digital connectivity with secure and fast QR solutions.</p>
+                <div class="social-links">
+                    <a href="https://github.com/arundada9000" target="_blank" rel="noopener" title="GitHub"><i
+                                class="fab fa-github"></i></a>
+                    <a href="https://youtube.com/@arundada9000" target="_blank" rel="noopener" title="YouTube"><i
+                                class="fab fa-youtube"></i></a>
+                    <a href="https://facebook.com/arundada9000" target="_blank" rel="noopener" title="Facebook"><i
+                                class="fab fa-facebook"></i></a>
+                    <a href="https://instagram.com/arundada9000" target="_blank" rel="noopener" title="Instagram"><i
+                                class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-nav">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="../index.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="../about.html"><i class="fas fa-user"></i> About</a></li>
+                    <li><a href="../blog.html"><i class="fas fa-book-open"></i> Guides</a></li>
+                    <li><a href="../privacy.html"><i class="fas fa-shield-alt"></i> Privacy Policy</a></li>
+                    <li><a href="../contact.html"><i class="fas fa-envelope"></i> Contact Me</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; <span id="year">2026</span> <strong>Arun Neupane</strong>. Crafted with <i
+                    class="fas fa-heart pulse"></i> for the Web.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById("darkModeToggle").onclick = () => document.body.classList.toggle("dark-mode");
+        const y = document.getElementById("year");
+        if (y) y.textContent = new Date().getFullYear();
+        let deferredInstall = null;
+        const installContainer = document.getElementById("installContainer");
+        const installBtn = document.getElementById("installBtn");
+        const isStandalone = window.matchMedia("(display-mode: standalone)").matches || navigator.standalone === true;
+        const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
+
+        if (!isStandalone) {
+            window.addEventListener("beforeinstallprompt", (e) => {
+                e.preventDefault();
+                deferredInstall = e;
+                installContainer.classList.remove("install-hidden");
+            });
+        }
+
+        if (isIOS && !isStandalone) {
+            installContainer.classList.remove("install-hidden");
+            installBtn.innerHTML = '<i class="fas fa-mobile-alt"></i> Add to Home Screen';
+            installBtn.onclick = () => {
+                alert('Tap the Share button in Safari, then choose "Add to Home Screen".');
+            };
+        }
+
+        if (installBtn && !isIOS && !isStandalone) {
+            installBtn.onclick = async () => {
+                if (!deferredInstall) return;
+                deferredInstall.prompt();
+                await deferredInstall.userChoice;
+                deferredInstall = null;
+                installContainer.classList.add("install-hidden");
+            };
+        }
+
+        window.addEventListener("appinstalled", () => {
+            installContainer.classList.add("install-hidden");
+        });
+
+        if ("serviceWorker" in navigator) {
+            window.addEventListener("load", () => {
+                navigator.serviceWorker.register("../sw.js").catch(() => {});
+            });
+        }
+    </script>
+</body>
+
+</html>
