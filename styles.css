@@ -37,6 +37,10 @@ header {
 header h1 span {
   color: var(--primary);
 }
+header .brand {
+  font-size: 2rem;
+  font-weight: 800;
+}
 
 .grid-container {
   display: grid;
@@ -460,11 +464,13 @@ select {
   margin-top: 20px;
   line-height: 1.8;
 }
-.content-article h2 {
+.content-article h2,
+.content-article h1 {
   font-size: 1.7rem;
   margin-bottom: 8px;
 }
-.content-article h2 span {
+.content-article h2 span,
+.content-article h1 span {
   color: var(--primary);
 }
 .content-article h3 {
