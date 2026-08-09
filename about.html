@@ -12,6 +12,10 @@
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://easyqrcreate.netlify.app/about">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
     <link rel="icon" href="./images/qr-code-50.png" type="image/x-icon">
 
     <link rel="manifest" href="./manifest.json">
@@ -26,12 +30,16 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://easyqrcreate.netlify.app/about">
     <meta property="og:image" content="https://easyqrcreate.netlify.app/images/og-image.png">
+    <meta property="og:site_name" content="SajiloQR">
+    <meta property="og:locale" content="en_US">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="About SajiloQR | Free QR Code Generator &amp; Scanner">
     <meta name="twitter:description"
         content="A free, privacy-first QR code generator and scanner by Arun Neupane. Your data never leaves your device.">
     <meta name="twitter:image" content="https://easyqrcreate.netlify.app/images/og-image.png">
+    <meta name="twitter:site" content="@arundada9000">
+    <meta name="twitter:creator" content="@arundada9000">
 
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap"
         rel="stylesheet">
@@ -54,9 +62,26 @@
         "author": {
           "@type": "Person",
           "name": "Arun Neupane",
-          "url": "https://github.com/arundada9000"
+          "url": "https://github.com/arundada9000",
+          "sameAs": [
+            "https://github.com/arundada9000",
+            "https://youtube.com/@arundada9000",
+            "https://facebook.com/arundada9000",
+            "https://instagram.com/arundada9000"
+          ]
         }
       }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://easyqrcreate.netlify.app/" },
+        { "@type": "ListItem", "position": 2, "name": "About", "item": "https://easyqrcreate.netlify.app/about" }
+      ]
     }
     </script>
 </head>
@@ -70,7 +95,7 @@
 
     <div class="main-wrapper">
         <header>
-            <h1><a href="./index.html" class="brand-link">Sajilo<span>QR</span></a></h1>
+            <p class="brand"><a href="./index.html" class="brand-link">Sajilo<span>QR</span></a></p>
             <p>About the tool</p>
             <nav class="main-nav" aria-label="Main navigation">
                 <a href="./index.html">Home</a>
@@ -85,7 +110,7 @@
         </nav>
 
         <article class="glass-card content-article">
-            <h2>About <span>SajiloQR</span></h2>
+            <h1>About <span>SajiloQR</span></h1>
 
             <p>SajiloQR is a free, browser-based QR code generator and scanner. It was created to solve a simple problem: most QR tools on the web either charge money, require an account, or quietly send your data to a server. This one does none of those things. Everything happens locally in your browser, so nothing you type, paste, scan, or photograph ever leaves your device.</p>
 
