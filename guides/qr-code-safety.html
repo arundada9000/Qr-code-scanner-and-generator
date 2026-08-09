@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>QR Code Scams and "Quishing": How to Scan Any Code Safely | SajiloQR</title>
+    <meta name="description"
+        content="QR code phishing ('quishing') is on the rise because a code hides its destination. Learn how these scams work, what to check before opening a link, and how to scan safely.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://easyqrcreate.netlify.app/guides/qr-code-safety">
+
+    <link rel="icon" href="../images/qr-code-50.png" type="image/x-icon">
+
+    <link rel="manifest" href="../manifest.json">
+    <meta name="theme-color" content="#6366f1">
+    <link rel="apple-touch-icon" href="../images/icon-192.png">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <meta property="og:title" content="QR Code Scams and Quishing: Scan Safely | SajiloQR">
+    <meta property="og:description"
+        content="How QR code phishing works, how to recognise a tampered code, and the habits that keep you safe when scanning anything.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://easyqrcreate.netlify.app/guides/qr-code-safety">
+    <meta property="og:image" content="https://easyqrcreate.netlify.app/images/og-image.png">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="QR Code Scams and Quishing: Scan Safely | SajiloQR">
+    <meta name="twitter:description"
+        content="How QR code phishing works and the habits that keep you safe when scanning.">
+    <meta name="twitter:image" content="https://easyqrcreate.netlify.app/images/og-image.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../styles.css">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "QR Code Scams and Quishing: How to Scan Any Code Safely",
+      "description": "How QR-based phishing works, how to recognise tampered codes, and how to scan any code safely.",
+      "author": { "@type": "Person", "name": "Arun Neupane" },
+      "publisher": { "@type": "Organization", "name": "EasyQRCreate" },
+      "datePublished": "2026-07-22",
+      "dateModified": "2026-07-22",
+      "mainEntityOfPage": "https://easyqrcreate.netlify.app/guides/qr-code-safety"
+    }
+    </script>
+</head>
+
+<body class="dark-mode">
+    <div id="darkModeToggle" class="theme-btn">🌙</div>
+
+    <div id="installContainer" class="install-hidden">
+        <button id="installBtn" class="install-btn"><i class="fas fa-download"></i> Install App</button>
+    </div>
+
+    <div class="main-wrapper">
+        <header>
+            <h1><a href="../index.html" class="brand-link">Sajilo<span>QR</span></a></h1>
+            <p>Guides &amp; Tutorials</p>
+            <nav class="main-nav" aria-label="Main navigation">
+                <a href="../index.html">Home</a>
+                <a href="../blog.html">Guides</a>
+                <a href="../about.html">About</a>
+                <a href="../contact.html">Contact</a>
+            </nav>
+        </header>
+
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../index.html">Home</a> &rsaquo; <a href="../blog.html">Guides</a> &rsaquo; <span>QR Code Safety</span>
+        </nav>
+
+        <article class="glass-card content-article">
+            <h2>QR Code Scams and <span>Quishing</span></h2>
+            <p>QR codes have a built-in trust problem: the pattern hides its destination until you scan it. You see a small square, but you can't tell whether it opens a menu, a payment page, or a fake login form designed to steal your password. Criminals have noticed, and QR-based phishing &mdash; nicknamed <strong>"quishing"</strong> &mdash; is now a routine tactic. The good news is that the defences are simple and don't require you to distrust every code you see.</p>
+
+            <h3>How QR phishing actually works</h3>
+            <p>The classic attack is physical tampering. A scammer prints a malicious QR code on a sticker and places it over a legitimate code &mdash; on a parking meter, a restaurant table, a poster, a package. When you scan, the code opens a convincing fake page: a payment screen for a parking fine, a login for your email, a survey that "rewards" you. Enter your details and they're captured.</p>
+            <p>The digital version arrives in email. A message that looks like it's from your bank, your courier, or your boss contains a QR code you're urged to scan &mdash; perhaps because "the link is blocked". Scanning moves the action from a computer to a phone, which bypasses many corporate security filters and, conveniently for the attacker, out of sight of trained email users.</p>
+            <p>Why do these work? Because scanning a code is a habit now. People tap "Open" almost reflexively, never glancing at the address that appears. The entire scam depends on that reflex &mdash; which means one small pause defeats it.</p>
+
+            <h3>Preview the link before you open it</h3>
+            <p>When a phone scans a QR code that points to a website, it shows a preview: the URL and the message "Open in browser?" in most camera apps. This preview is your checkpoint. Before tapping open:</p>
+            <ul>
+                <li><strong>Read the domain.</strong> Does it match who you expected? A parking code should open the parking operator's site, not "pay-now-today.top".</li>
+                <li><strong>Check for typos.</strong> "paypa1-login.com" or "amaz0n-support.com" are red flags even when the real name is present.</li>
+                <li><strong>Distrust shortened links.</strong> Codes that resolve to <code>bit.ly/...</code> or other shorteners hide the real destination. Legitimate services sometimes use them, but combined with an unexpected prompt, they're suspicious.</li>
+                <li><strong>Unexpected prompt? Stop.</strong> If the page asks for a password, card number, or one-time code out of nowhere, close it. No organisation you're a customer of needs your password through a QR code on a parking meter.</li>
+            </ul>
+            <p>SajiloQR's <a href="../index.html">scanner</a> makes this even easier: it shows you the decoded text <em>before</em> you decide whether to open anything, so a URL is visible in full rather than hidden behind a camera-app preview.</p>
+
+            <h3>Look for tampering</h3>
+            <p>Physical codes deserve a two-second inspection before scanning:</p>
+            <ul>
+                <li><strong>A sticker on top of a sticker.</strong> The tell-tale sign of the classic swap. If a code looks raised, glossy, or misaligned over an older code, don't scan it.</li>
+                <li><strong>A code that looks out of place.</strong> A fresh, odd-looking code on a grubby meter or a poster you've seen for months is worth questioning.</li>
+                <li><strong>Cover the existing code?</strong> Legitimate replacement codes are usually installed cleanly, not slapped over the old one.</li>
+            </ul>
+
+            <h3>Email and messaging codes</h3>
+            <ul>
+                <li><strong>Never scan a code from an unexpected email or text</strong> that pressures you with urgency &mdash; "act now", "your account is locked", "verify within 24 hours". Urgency is the scammer's favourite tool.</li>
+                <li><strong>Verify the sender by another channel.</strong> If a "bank" email asks you to scan a code, call the number on your card, not the one in the email.</li>
+                <li><strong>Remember: real companies rarely need a QR code to get you to log in.</strong> They can just put a link on their own site.</li>
+            </ul>
+
+            <h3>Business owners: protect your own codes</h3>
+            <p>If you run a venue, a shop, or anything with printed codes, you have a stake in this too. A customer scammed through a code in your business is bad for them and worse for your reputation:</p>
+            <ul>
+                <li><strong>Check codes regularly</strong>, especially in busy, high-foot-traffic spots.</li>
+                <li><strong>Print codes that are hard to cover.</strong> Embed them inside a branded card or stand rather than as a loose sticker.</li>
+                <li><strong>Use a URL you own and keep it short</strong>, so a replacement code pointing elsewhere is easy to spot.</li>
+                <li><strong>Tell staff what to look for</strong> and how to report a suspicious sticker.</li>
+            </ul>
+
+            <h3>What to do if you think you've been scammed</h3>
+            <ul>
+                <li><strong>Don't panic and don't delete evidence.</strong> Screenshot the page and note where the code was.</li>
+                <li><strong>Change the password you entered</strong> immediately &mdash; and anything that uses the same one.</li>
+                <li><strong>If you entered card details or payment information</strong>, contact your bank or card issuer right away.</li>
+                <li><strong>Report it.</strong> Tell the business if the code was on their premises, and consider reporting to the local cybercrime unit or consumer protection authority.</li>
+            </ul>
+
+            <h3>The balanced view</h3>
+            <p>None of this means QR codes are dangerous. They're a hugely useful technology &mdash; and they're also just text in a box. The safety rule is the same one that applies to every link on the internet: <em>look before you open</em>. Scan, read the destination, then decide. A single second of attention removes almost all the risk.</p>
+
+            <p>For a hands-on look at what a code actually contains, scan one with SajiloQR's <a href="../index.html">scanner</a> &mdash; it shows you the decoded text first, no page-opening required. If you'd like to understand the technology these scams rely on, see <a href="how-qr-codes-work.html">how QR codes work</a>.</p>
+
+            <div class="cta-wrap">
+                <a href="../index.html" class="btn primary">Scan a code safely</a>
+            </div>
+
+            <div class="related-grid">
+                <div class="article-card">
+                    <p class="article-meta">Related guide</p>
+                    <h3><a href="how-qr-codes-work.html">How QR Codes Work</a></h3>
+                    <p>Why a code hides its content until scanned &mdash; the technical reason behind quishing.</p>
+                </div>
+                <div class="article-card">
+                    <p class="article-meta">Related guide</p>
+                    <h3><a href="qr-codes-for-restaurants.html">QR Codes for Restaurants</a></h3>
+                    <p>Protecting your menu codes &mdash; the security section included.</p>
+                </div>
+                <div class="article-card">
+                    <p class="article-meta">Related guide</p>
+                    <h3><a href="wifi-qr-code.html">Wi-Fi QR Codes Explained</a></h3>
+                    <p>Why Wi-Fi codes need to be shared carefully, not scanned by strangers.</p>
+                </div>
+            </div>
+        </article>
+    </div>
+
+    <footer class="main-footer">
+        <div class="footer-wave">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                preserveAspectRatio="none">
+                <path
+                    d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+                    class="shape-fill"></path>
+            </svg>
+        </div>
+
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h2>Sajilo<span>QR</span></h2>
+                <p>Empowering your digital connectivity with secure and fast QR solutions.</p>
+                <div class="social-links">
+                    <a href="https://github.com/arundada9000" target="_blank" rel="noopener" title="GitHub"><i
+                                class="fab fa-github"></i></a>
+                    <a href="https://youtube.com/@arundada9000" target="_blank" rel="noopener" title="YouTube"><i
+                                class="fab fa-youtube"></i></a>
+                    <a href="https://facebook.com/arundada9000" target="_blank" rel="noopener" title="Facebook"><i
+                                class="fab fa-facebook"></i></a>
+                    <a href="https://instagram.com/arundada9000" target="_blank" rel="noopener" title="Instagram"><i
+                                class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-nav">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="../index.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="../about.html"><i class="fas fa-user"></i> About</a></li>
+                    <li><a href="../blog.html"><i class="fas fa-book-open"></i> Guides</a></li>
+                    <li><a href="../privacy.html"><i class="fas fa-shield-alt"></i> Privacy Policy</a></li>
+                    <li><a href="../contact.html"><i class="fas fa-envelope"></i> Contact Me</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; <span id="year">2026</span> <strong>Arun Neupane</strong>. Crafted with <i
+                    class="fas fa-heart pulse"></i> for the Web.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById("darkModeToggle").onclick = () => document.body.classList.toggle("dark-mode");
+        const y = document.getElementById("year");
+        if (y) y.textContent = new Date().getFullYear();
+        let deferredInstall = null;
+        const installContainer = document.getElementById("installContainer");
+        const installBtn = document.getElementById("installBtn");
+        const isStandalone = window.matchMedia("(display-mode: standalone)").matches || navigator.standalone === true;
+        const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
+
+        if (!isStandalone) {
+            window.addEventListener("beforeinstallprompt", (e) => {
+                e.preventDefault();
+                deferredInstall = e;
+                installContainer.classList.remove("install-hidden");
+            });
+        }
+
+        if (isIOS && !isStandalone) {
+            installContainer.classList.remove("install-hidden");
+            installBtn.innerHTML = '<i class="fas fa-mobile-alt"></i> Add to Home Screen';
+            installBtn.onclick = () => {
+                alert('Tap the Share button in Safari, then choose "Add to Home Screen".');
+            };
+        }
+
+        if (installBtn && !isIOS && !isStandalone) {
+            installBtn.onclick = async () => {
+                if (!deferredInstall) return;
+                deferredInstall.prompt();
+                await deferredInstall.userChoice;
+                deferredInstall = null;
+                installContainer.classList.add("install-hidden");
+            };
+        }
+
+        window.addEventListener("appinstalled", () => {
+            installContainer.classList.add("install-hidden");
+        });
+
+        if ("serviceWorker" in navigator) {
+            window.addEventListener("load", () => {
+                navigator.serviceWorker.register("../sw.js").catch(() => {});
+            });
+        }
+    </script>
+</body>
+
+</html>
