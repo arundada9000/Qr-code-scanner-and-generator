@@ -20,6 +20,12 @@
     <!-- Canonical URL -->
     <link rel="canonical" href="https://easyqrcreate.netlify.app/">
 
+    <!-- Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+
     <!-- Favicon -->
     <link rel="icon" href="./images/qr-code-50.png" type="image/x-icon">
 
@@ -37,6 +43,8 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://easyqrcreate.netlify.app/">
     <meta property="og:image" content="https://easyqrcreate.netlify.app/images/og-image.png">
+    <meta property="og:site_name" content="SajiloQR">
+    <meta property="og:locale" content="en_US">
 
     <!-- Twitter / X -->
     <meta name="twitter:card" content="summary_large_image">
@@ -44,6 +52,8 @@
     <meta name="twitter:description"
         content="Create and scan QR codes online instantly, ad-free, and for free. Easy and fast QR generator and scanner.">
     <meta name="twitter:image" content="https://easyqrcreate.netlify.app/images/og-image.png">
+    <meta name="twitter:site" content="@arundada9000">
+    <meta name="twitter:creator" content="@arundada9000">
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap"
@@ -79,6 +89,57 @@
     "price": "0",
     "priceCurrency": "USD"
   }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "name": "SajiloQR",
+      "url": "https://easyqrcreate.netlify.app/",
+      "description": "Free, privacy-first QR code generator and scanner that runs entirely in your browser."
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Do QR codes expire?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. SajiloQR generates static QR codes, where the data is baked into the pattern itself, so a code you print today will still scan years from now. Only dynamic codes from third-party services can stop working if that service shuts down."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is this tool free, and does it store my data?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It is completely free with no account required. All generation and scanning run locally in your browser, so your links, text, Wi-Fi passwords, and camera feed are never uploaded. Recent history is stored only in your own browser's local storage."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why won't my QR code scan?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The usual causes are low contrast (always use dark on a light background), printing it too small, packing in too much data, or damage beyond the error-correction level. Keep a quiet margin around the code and make it at least 2 cm wide when printed."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I download the QR code as an image?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Once a code is generated, the Download PNG button saves a crisp image you can use in a document, poster, or slide."
+          }
+        }
+      ]
+    }
+  ]
 }
 </script>
 
@@ -347,9 +408,9 @@
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" defer></script>
+    <script src="script.js" defer></script>
     <script>
         let deferredInstall = null;
         const installContainer = document.getElementById("installContainer");
